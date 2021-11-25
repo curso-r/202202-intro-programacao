@@ -3,6 +3,10 @@
 
 ## Informações importantes
 
+  - [Clique
+    aqui](https://github.com/curso-r/main-intro-programacao/raw/master/material_do_curso.zip)
+    para baixar o material do curso.
+
   - Nosso blog: <https://curso-r.com/blog/>
 
   - Nossos livros: [Ciência de Dados em R](https://livro.curso-r.com/) e
@@ -34,17 +38,17 @@ Fora do horário de aula ou monitoria:
 
 | script                                                                                                                                                     |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [exemplos\_de\_aula/01-introducao.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/01-introducao.R)                     |
-| [exemplos\_de\_aula/02-tabelas.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/02-tabelas.R)                           |
-| [exemplos\_de\_aula/03-filtros.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/03-filtros.R)                           |
-| [exemplos\_de\_aula/04-controle-de-fluxo-NA.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/04-controle-de-fluxo-NA.R) |
-| [exemplos\_de\_aula/05-loops.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/05-loops.R)                               |
-| [exemplos\_de\_aula/06-loops-2.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/06-loops-2.R)                           |
-| [exemplos\_de\_aula/07-funcoes.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/07-funcoes.R)                           |
-| [exemplos\_de\_aula/08-pipe.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/08-pipe.R)                                 |
-| [exemplos\_de\_aula/09-instalar-pacotes.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/09-instalar-pacotes.R)         |
-| [exemplos\_de\_aula/10-manipulacao-arquivos.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/10-manipulacao-arquivos.R) |
-| [exemplos\_de\_aula/11-exemplo-source.R](https://github.com/curso-r/202102-intro-programacao/blob/master/exemplos_de_aula/11-exemplo-source.R)             |
+| [exemplos\_de\_aula/01-introducao.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/01-introducao.R)                     |
+| [exemplos\_de\_aula/02-tabelas.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/02-tabelas.R)                           |
+| [exemplos\_de\_aula/03-filtros.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/03-filtros.R)                           |
+| [exemplos\_de\_aula/04-controle-de-fluxo-NA.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/04-controle-de-fluxo-NA.R) |
+| [exemplos\_de\_aula/05-loops.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/05-loops.R)                               |
+| [exemplos\_de\_aula/06-loops-2.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/06-loops-2.R)                           |
+| [exemplos\_de\_aula/07-funcoes.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/07-funcoes.R)                           |
+| [exemplos\_de\_aula/08-pipe.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/08-pipe.R)                                 |
+| [exemplos\_de\_aula/09-instalar-pacotes.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/09-instalar-pacotes.R)         |
+| [exemplos\_de\_aula/10-manipulacao-arquivos.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/10-manipulacao-arquivos.R) |
+| [exemplos\_de\_aula/11-exemplo-source.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/11-exemplo-source.R)             |
 
 ## Lição de casa
 
@@ -59,12 +63,8 @@ Fora do horário de aula ou monitoria:
 
 ## Trabalhos finais premiados
 
-| pasta\_compactada                                                                                                                                                    |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [trabalhos\_premiados/trabalho\_ana\_rafaela.zip](https://github.com/curso-r/202102-intro-programacao/raw/master/trabalhos_premiados/trabalho_ana_rafaela.zip)       |
-| [trabalhos\_premiados/trabalho\_fernando\_jose.rar](https://github.com/curso-r/202102-intro-programacao/raw/master/trabalhos_premiados/trabalho_fernando_jose.rar)   |
-| [trabalhos\_premiados/trabalho\_maykon.zip](https://github.com/curso-r/202102-intro-programacao/raw/master/trabalhos_premiados/trabalho_maykon.zip)                  |
-| [trabalhos\_premiados/trabalho\_victor\_valerio.zip](https://github.com/curso-r/202102-intro-programacao/raw/master/trabalhos_premiados/trabalho_victor_valerio.zip) |
+| pasta\_compactada |
+| :---------------- |
 
 ## Material extra
 
