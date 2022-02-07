@@ -5,7 +5,7 @@ params:
   trilha_clean: programacao_para_ciencia_de_dados
   turma: 202202-intro-programacao
   nome_curso: Introdução a programação com R
-  num_aula: '0'
+  num_aula: '1'
   download_material: 'TRUE'
 ---
 
@@ -67,7 +67,8 @@ dplyr::mutate(
   pdf = glue::glue("[{basename(slide_pdf)}]({link_pdf})")
 ) %>% 
   dplyr::filter(!stringr::str_detect(slide, "_files/")) %>%
-  dplyr::select(slides, pdf) %>% 
+  dplyr::select(slides, pdf) %>%
+  dplyr::slice(1:3) |>
   knitr::kable()
 ```
 
@@ -89,42 +90,31 @@ knitr::kable(
     )
   ) %>%
     dplyr::mutate(script = glue::glue("[{script}]({link})")) %>%
-    dplyr::select(script)
+    dplyr::select(script)|>
+    dplyr::slice(0)
 )
 ```
 
 
-## Lição de casa
-
-```{r}
-tibble::tibble(
-  nome = CursoRopen:::list_github_files(params$main_repo, "exercicios/"),
-  link = paste0("https://curso-r.github.io/", params$main_repo, "/", nome),
-  exercicio = glue::glue("[{nome}]({link})")
-) %>%
-    dplyr::filter(!stringr::str_detect(nome, "resolucao_")) %>% 
-  dplyr::select(exercicio) %>% 
-  knitr::kable()
-```
 
 
+
+```{r eval=FALSE, include=FALSE}
 ## Trabalhos finais premiados
-
-```{r echo=FALSE}
-nome_pasta <- "trabalhos_premiados"
-
-tibble::tibble(
-  script = CursoRopen:::list_github_files(params$turma, nome_pasta, ".zip|.rar"),
-  link = paste0(
-    "https://github.com/curso-r/",
-    params$turma,
-    "/raw/master/",
-    script
-  ),
-  pasta_compactada = glue::glue("[{script}]({link})")
-) %>% 
-  dplyr::select(pasta_compactada) %>% 
-  knitr::kable()
+# nome_pasta <- "trabalhos_premiados"
+# 
+# tibble::tibble(
+#   script = CursoRopen:::list_github_files(params$turma, nome_pasta, ".zip|.rar"),
+#   link = paste0(
+#     "https://github.com/curso-r/",
+#     params$turma,
+#     "/raw/master/",
+#     script
+#   ),
+#   pasta_compactada = glue::glue("[{script}]({link})")
+# ) %>% 
+#   dplyr::select(pasta_compactada) %>% 
+#   knitr::kable()
 ```
 
 
