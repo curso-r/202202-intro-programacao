@@ -91,7 +91,7 @@ knitr::kable(
   ) %>%
     dplyr::mutate(script = glue::glue("[{script}]({link})")) %>%
     dplyr::select(script)|>
-    dplyr::slice(0)
+    dplyr::slice(1)
 )
 ```
 

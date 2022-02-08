@@ -31,8 +31,9 @@ Fora do horário de aula ou monitoria:
 
 ## Scripts utilizados em aula
 
-| script |
-|:-------|
+| script                                                                                                                               |
+|:-------------------------------------------------------------------------------------------------------------------------------------|
+| [exemplos_de_aula/01-introducao.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/01-introducao.R) |
 
 ## Material extra
 
