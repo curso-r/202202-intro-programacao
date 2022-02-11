@@ -13,7 +13,7 @@
 
 # Rodando códigos (o R como calculadora) ----------------------------------
 
-# ATALHO para rodar o código: CTRL + ENTER  
+# ATALHO para rodar o código: CTRL + ENTER
 # Mesmo atalho no Mac: Command + ENTER
 
 
@@ -117,12 +117,12 @@ a <- 10
 obj <- "a"
 obj2 <- "masculino"
 
-# note que na aba "variáveis" os formatos das variáveis "obj" e "a" 
+# note que na aba "variáveis" os formatos das variáveis "obj" e "a"
 # são diferentes
 
 # Valores lógicos/booleanos (verdadeiro ou falso)
 
-class(TRUE) 
+class(TRUE)
 class(FALSE)
 
 verdadeiro <- TRUE
@@ -230,7 +230,7 @@ exercicio <- c(0, 1,2,3,4,5)
 
 exercicio_v2 <- 0:5
 
-# b. Use subsetting para fazer o R devolver o primeiro número dessa 
+# b. Use subsetting para fazer o R devolver o primeiro número dessa
 # sequência.
 # Em seguida, faça o R devolver o último número da sequência.
 exercicio[1]
@@ -270,8 +270,10 @@ c(1, 3, 5)
 seq(from = 4, to = 10, by = 2)
 seq(4, 10, 2)
 
+
 seq(by = 2, to = 10, from = 4)
 seq(2, 10, 4)
+
 
 
 vetor_exemplos <- c(1, 5, 3.4, 7.23, 2.1, 3.8)
@@ -285,7 +287,7 @@ mean(vetor_exemplos)
 
 median(vetor_exemplos)
 
-# Exemplo 3 var - Como calcular uma variância 
+# Exemplo 3 var - Como calcular uma variância
 
 var(vetor_exemplos)
 
@@ -304,6 +306,7 @@ min(vetor_exemplos)
 # Exemplo 7 - Como arrendondar valores
 
 round(vetor_exemplos)
+round(vetor_exemplos, digits = 1)
 
 # Exemplo 8 - Descobrir o tamanho do vetor: quantos elementos ele tem?
 
@@ -325,7 +328,7 @@ resultado_colado <- paste0(1, "a")
 # 1 - O R propriamente dito é aquela caixinha onde se lê "Console" escrito
 # em cima
 
-# 2 - Você pode escrever comeando direto nele, do lado daquele sinal de 
+# 2 - Você pode escrever comando direto nele, do lado daquele sinal de
 # maior: ">"
 
 # É muito comum você fazer contas direto no Console, por exemplo.
@@ -334,7 +337,7 @@ resultado_colado <- paste0(1, "a")
 # 5+1, 4+2, 1-1, 1/1 etc
 
 # 3 - O jeito mais comum de programar em R é escrevendo vários comandos em
-# um arquivo de texto e executando todos eles de uma vez, manualmente ou 
+# um arquivo de texto e executando todos eles de uma vez, manualmente ou
 # talvez até programando o computador para fazer isso.
 
 # 4 - Aprendemos vários exemplos de comandos que podemos usar no R:

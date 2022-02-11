@@ -22,12 +22,13 @@
 # e aplica ela num texto, entre aspas. As aspas são importantes!
 
 
-install.packages("readr")
+# install.packages("readr")
 
 # para que todas as funções de leitura de dados fiquem disponíveis para você, 
 # você usa a função "library". Neste caso, funciona com ou sem aspas!
 
 library("readr")
+library(readr)
 
 
 # a função library deixa todas as funções que fazem parte do pacote readr
@@ -75,9 +76,12 @@ getwd()
 
 # Caminhos relativos: são relativos ao  diretório de trabalho atual, partem dele.
 "dados/imdb.csv"
+# outro exemplo
+"dados/voos_de_abril.csv"
 
 # (cara(o) professora(o), favor lembrar de falar da dica 
-# de navegação entre as aspas e a tecla tab)
+# de navegação entre as aspas e a tecla tab) 
+
 
 # Carregando os dados de uma planhila -------
 
@@ -86,17 +90,34 @@ getwd()
 # que esteja salva com a extensão ".csv", 
 # você pode utilizar a função read_csv2() :
 
+library(readr)
+
 base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
 
+#?dados::voos
+#?nycflights13::flights
+# install.packages("nycflights13")
+
+base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
+
+base_de_dados_fev <- read_delim("dados/voos_de_fevereiro.csv", 
+                                delim = ";", escape_double = FALSE, trim_ws = TRUE)
+View(base_de_dados_fev)
+
+
+importando_com_ponto <- read.csv2("dados/voos_de_abril.csv")
+
 ## Exercício! ------------
-# Carregue a base de dados correspondente aos voos de fevereiro, 
-# e guarde em um objeto chamado 'base_de_dados_fev'
+# Carregue a base de dados correspondente aos voos de marco, 
+# e guarde em um objeto chamado 'base_de_dados_marco'
 
 
+# read.csv2() # utils
+# read_csv2() # readr
 
+base_de_dados_marco <- read_csv2("dados/voos_de_marco.csv")
 
-
-
+base_de_dados_abril <- read_csv2("dados/voos_de_abril.csv")
 
 
 # Bases no R - o que é um data.frame? -------
@@ -129,7 +150,6 @@ nrow(base_de_dados)
 # Retorna o número de colunas e linhas (as dimensões do data.frame!)
 dim(base_de_dados)
 
-
 # Primeiras 6 linhas de uma tabela
 head(base_de_dados)
 
@@ -142,14 +162,21 @@ summary(base_de_dados)
 
 str(base_de_dados)
 
+colnames(base_de_dados)
+
 ## Exercícios! ------------
 # Use as funções que apresentamos agora para descobrir:
 
 # a) Quantos voos a base que carregamos referente à fevereiro
 # (base_de_dados_fev) apresenta? (Dica: cada voo é apresentado em uma linha)
 
+nrow(base_de_dados_fev)
+nrow(base_de_dados_marco)
+nrow(base_de_dados_abril)
 
 # b) Qual é a dimensão do data.frame base_de_dados_fev? E o que significa?
+
+dim(base_de_dados_marco)
 
 # Operadores de seleção de data.frames -------
 
@@ -160,6 +187,10 @@ str(base_de_dados)
 base_de_dados$origem
 
 base_de_dados$companhia_aerea
+
+vetor_origem <- base_de_dados$origem
+
+base_de_dados$destino[5]
 
 # Dica: use o tab do teclado para usar a funcionalidade de autocompletar.
 
@@ -181,6 +212,15 @@ base_de_dados[[10]]
 
 # Selecionando e mantendo a classe data.frame!
 # uma coluna
+
+# vetor[posicao]
+base_de_dados$ano[c(1, 2, 3)]
+
+
+# basededados[posicao_das_linhas, posicao_das_colunas]
+base_de_dados[ , "ano"]
+
+
 base_de_dados[, "origem"]
 
 
@@ -190,8 +230,15 @@ base_de_dados[, "origem"]
 # install.packages("dplyr")
 library(dplyr)
 
+
+# dplyr::select()
+
 select(base_de_dados, origem)
 select(base_de_dados, companhia_aerea)
+
+
+select(base_de_dados, ano, mes, dia)
+select(base_de_dados, ano:atraso_saida)
 
 # A classe data frame tem uma característica especial: dimensão
 
@@ -227,8 +274,9 @@ base_de_dados[, c("origem", "companhia_aerea")]
 # a) Considerando os meses de Janeiro e Fevereiro, em qual mês a distância
 # total voada foi maior?
 
+distancia_jan <- sum(base_de_dados$distancia)
 
-
+distancia_fev <- sum(base_de_dados_fev$distancia)
 
 # Dataframes e funções ------------
 
@@ -279,13 +327,13 @@ class(nascimento_data)
 
 
 # e datas formatadas de outra forma?
-nascimento_texto_br <- c("15-02-1993")
+nascimento_texto_br <- c("15/02/1993")
 
 as.Date(nascimento_texto_br) # Resultado incorreto!
 
 
 # usar argumento format para informar qual o formato da data
-nascimento_data_br <- as.Date(nascimento_texto_br, format = "%d-%m-%Y") 
+nascimento_data_br <- as.Date(nascimento_texto_br, format = "%d/%m/%Y") 
 
 class(nascimento_data_br)
 

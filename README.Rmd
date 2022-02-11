@@ -5,7 +5,7 @@ params:
   trilha_clean: programacao_para_ciencia_de_dados
   turma: 202202-intro-programacao
   nome_curso: Introdução a programação com R
-  num_aula: '1'
+  num_aula: 2
   download_material: 'TRUE'
 ---
 
@@ -68,7 +68,7 @@ dplyr::mutate(
 ) %>% 
   dplyr::filter(!stringr::str_detect(slide, "_files/")) %>%
   dplyr::select(slides, pdf) %>%
-  dplyr::slice(1:3) |>
+  dplyr::slice(1:4) |>
   knitr::kable()
 ```
 
@@ -91,7 +91,7 @@ knitr::kable(
   ) %>%
     dplyr::mutate(script = glue::glue("[{script}]({link})")) %>%
     dplyr::select(script)|>
-    dplyr::slice(1)
+    dplyr::slice(1:3)
 )
 ```
 
@@ -124,37 +124,19 @@ knitr::kable(
 Referências extras relacionadas com o conteúdos das aulas, ou materiais que comentamos quando tiramos dúvidas (não necessariamente são relacionadas com o conteúdo da aula).
 
 ```{r echo=FALSE, message=FALSE}
-safe_buscar_materiais_extras <- purrr::possibly(.f = function(main_repo = params$main_repo, 
-                                                              trilha_clean = params$trilha_clean){
-  library(magrittr, include.only = "%>%")
-  googlesheets4::gs4_deauth()
-googledrive::drive_deauth()
+library(magrittr, include.only = "%>%")
+googlesheets4::gs4_auth()
 
-id_spreadsheet <- "1YV2vz52u2HXw1IhjrJ7dGhk7sim-9zRM" %>%
-  googledrive::as_id() %>%
-  googledrive::drive_ls() %>%
-  dplyr::filter(name %in% params$trilha_clean) %>%
-  dplyr::pull(id) %>%
-  googlesheets4::as_sheets_id()
+materiais <-
+  "https://docs.google.com/spreadsheets/d/1Ipmjvh3yJKRMU_ScQCb5z4UwQuzjBV9Z3PIF_ojvFME/edit#gid=804267470" %>%
+  googlesheets4::read_sheet(stringr::str_remove(params$main_repo, "main-")) 
 
-
-id_spreadsheet %>%
-  googlesheets4::read_sheet(stringr::str_remove(main_repo, "main-")) %>%
+materiais %>%
   dplyr::mutate(link = glue::glue("[{desc}]({url})")) %>%
   dplyr::select(-desc,-url) %>%
   dplyr::arrange(aula) %>%
-  # dplyr::filter(aula <= params$num_aula) %>%
-  knitr::kable(col.names = c("Aula", "Tema", "Descrição")) 
-}, "erro")
-
-
-tabela <- safe_buscar_materiais_extras()
-
-if(tabela[1] == "erro") {
-  print("Verificar tabela de materiais extras")
-} else{
-  tabela
-}
+  dplyr::filter(aula <= params$num_aula) %>%
+  knitr::kable(col.names = c("Aula", "Tema", "Descrição"))
 
 ```
 
