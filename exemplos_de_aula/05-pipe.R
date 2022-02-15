@@ -10,6 +10,8 @@ base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
 
 library(magrittr)
 
+# |> 
+
 # Caso não tenha instalado: install.packages("magrittr")
 
 # Transforma funçõe aninhadas em funções
@@ -22,6 +24,8 @@ x %>% f(x) %>% g(x) # ERRADO
 
 # Receita de bolo sem pipe. 
 # Tente entender o que é preciso fazer.
+
+filter(select(base_de_dados, origem, destino), origem == "EWR")
 
 esfrie(
   asse(
@@ -59,6 +63,10 @@ recipiente(rep("farinha", 2), "água", "fermento", "leite", "óleo") %>%
 
 # ATALHO DO %>%: CTRL (command) + SHIFT + M
 
+base_de_dados %>% 
+  select(origem, destino) %>% 
+  filter(origem == "EWR") %>% 
+  head()
 
 # Exercício ---------------------------------------------------------------
 
@@ -68,6 +76,14 @@ recipiente(rep("farinha", 2), "água", "fermento", "leite", "óleo") %>%
 
 round(mean(base_de_dados$atraso_chegada, na.rm = TRUE), 2)
 
+mean(base_de_dados$atraso_chegada, na.rm = TRUE) %>% 
+  round(2)
 
+base_de_dados$atraso_chegada %>% 
+  mean(na.rm = TRUE) %>% 
+  round(2)
 
+# resolucoes:
+mean(base_de_dados$atraso_chegada, na.rm = TRUE)  %>% 
+  round(2)
 

@@ -2,14 +2,16 @@
 
 # Valores lógicos
 
-class(TRUE)
-class(FALSE)
+class(TRUE) # valor 1
+class(FALSE) # valor 0
 
 # TRUE e FALSE são nomes reservados 
 
 TRUE <- 1
 
 x <- 1
+
+# y = 1 # não é boa prática mas funciona.
 
 # Testes com resultado verdadeiro
 x == 1
@@ -18,6 +20,7 @@ x == 1
 # Testes com resultado falso
 x == 2
 "a" == "b"
+"A" == "a"
 
 # Maior
 x > 3
@@ -46,11 +49,18 @@ x %in% c(1, 2, 3)
 
 numeros <- c(4, 8, 15, 16, 23, 42)
 
-# vetor de lógicos que compara os elementos de "numeros", um por um, com o número 20
+# vetor de lógicos que compara os elementos de "numeros", 
+# um por um, com o número 20
 numeros < 20
+# [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE
 
-# vetor de lógicos que compara os elementos de "numeros", um por um, com o número 23
+# vetor de lógicos que compara os elementos de "numeros", 
+# um por um, com o número 23
 numeros == 23
+# [1] FALSE FALSE FALSE FALSE  TRUE FALSE
+
+numeros %in% c(0:10)
+# [1]  TRUE  TRUE FALSE FALSE FALSE FALSE
 
 ## Comparações lógicas serão a base dos filtros!
 
@@ -59,8 +69,12 @@ numeros <- c(4, 8, 15, 16, 23, 42)
 # seleciona apenas o primeiro elemento do vetor "numeros"
 numeros[c(TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)]
 
+# numeros[.....]
+
 # seleciona apenas aqueles elementos do vetor "numeros" que forem iguais a 15
 numeros[numeros == 15]
+
+numeros[numeros %in% c(1:10)]
 
 # Exercícios --------------------------------------------------------------
 
@@ -69,6 +83,7 @@ numeros[numeros == 15]
 
 vetor <- c(4, 8, 10, 15, 16, 23, 42)
 
+vetor[vetor >= 10]
 
 
 # Operadores lógicos ----------
@@ -77,6 +92,10 @@ vetor <- c(4, 8, 10, 15, 16, 23, 42)
 # precisam resultar em TRUE
 
 x <- 5
+
+x >= 3
+x <= 7
+
 x >= 3 & x <=7
 
 
@@ -98,14 +117,19 @@ x_vetor <- c(89, 36, 96, 10, 99, 39)
 y_vetor <- c(53, 30, 15, 54, 34, 60)
 
 x_vetor > 50 | y_vetor < 10
+
+
+
 x_vetor <= 50 & y_vetor > 10
 
 ## ! - Negação - É o "contrário"
-
+# 
 !TRUE
 
 !FALSE
 
+# exemplo didático
+#!aeroporto %in% c("aeroporto 1", "aeroporto 2")
 
 w <- 5
 (!w < 4)
@@ -133,7 +157,7 @@ NULL # representa a ausência de objeto (no R).
 
 idade_ana <- 30
 idade_beto <- NA
-idade_carla <- NA
+idade_carla <- NA 
 
 idade_ana == idade_beto
 
@@ -161,6 +185,10 @@ is.null(NULL)
 
 # Dataframes e funções ------------
 
+base_de_dados <- readr::read_csv2("dados/voos_de_janeiro.csv")
+
+dplyr::glimpse(base_de_dados)
+
 # E se quisermos calcular coisas com a coluna atraso_chegada?
 
 sum(base_de_dados$atraso_chegada) 
@@ -176,6 +204,8 @@ sum(is.na(base_de_dados$atraso_chegada)) # Quantos NA tem na coluna?
 # Assim somaremos quantos NA tem na coluna,
 # pois cada TRUE (presença de NA) será contabilizado como 1.
 
+# contar quantas observacoes da coluna atraso_chegada NAO  sao NA:
+sum(!is.na(base_de_dados$atraso_chegada))
 
 # ... e se quisermos ignorar o NA? 
 # Algumas funções possuem um argumento para remover os NA:
@@ -206,3 +236,7 @@ sd(base_de_dados$atraso_chegada, na.rm = TRUE)
 # Exercícios ------------------------------------------
 # 1. Calcule o valor mínimo e valor máximo da coluna "atraso_saida". O que 
 # esses valores significam?
+
+min(base_de_dados$atraso_saida, na.rm = TRUE)
+max(base_de_dados$atraso_saida, na.rm = TRUE)
+
