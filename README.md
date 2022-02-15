@@ -29,6 +29,7 @@ Fora do horário de aula ou monitoria:
 | [02-introducao-ao-RStudio.html](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.html) | [02-introducao-ao-RStudio.pdf](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.pdf) |
 | [03-introducao-ao-R.html](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.html)             | [03-introducao-ao-R.pdf](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.pdf)             |
 | [04-tabelas.html](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.html)                             | [04-tabelas.pdf](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.pdf)                             |
+| [05-filtros.html](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.html)                             | [05-filtros.pdf](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.pdf)                             |
 
 ## Scripts utilizados em aula
 
@@ -37,6 +38,8 @@ Fora do horário de aula ou monitoria:
 | [exemplos_de_aula/01-introducao.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/01-introducao.R)                             |
 | [exemplos_de_aula/02-tabelas.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/02-tabelas.R)                                   |
 | [exemplos_de_aula/03-comparacoes-logicas-e-NA.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/03-comparacoes-logicas-e-NA.R) |
+| [exemplos_de_aula/04-filtros.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/04-filtros.R)                                   |
+| [exemplos_de_aula/05-pipe.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/05-pipe.R)                                         |
 
 ## Material extra
 
