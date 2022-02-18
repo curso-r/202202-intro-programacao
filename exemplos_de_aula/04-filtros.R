@@ -29,24 +29,71 @@ exemplo_e <- base_de_dados[base_de_dados$origem == "EWR" & base_de_dados$tempo_v
 
 ## Exercícios --------------------------------------------------------------
 
-# FAZER ESSES EXERCÍCIOS
+library(dplyr)
 
 # 1. Usando a base de voos, e considerando que as colunas "dia", "mes" e "ano"
-# compõem a data de saída do voo, escreva um código que devolva apenas os voos 
+# compõem a data de saída do voo, escreva um código que devolva apenas os voos
 # que saíram no dia 15/01/2013:
 
+# Considerando mes, dia e ano:
+base_de_dados[base_de_dados$ano == 2013 & base_de_dados$mes == 1 & base_de_dados$dia == 15,]
+
+# Considerando que a base já é de janeiro de 2013
+base_de_dados[base_de_dados$dia == 15,]
 
 
-# 2. Usando a base de voos, escreva um código que devolva apenas os voos 
+# O mesmo filtro com dplyr: considerando o mes, dia e ano
+base_de_dados %>%
+  filter(ano == 2013, mes == 1, dia == 15)
+
+
+# O mesmo filtro com dplyr: Considerando que a base já é de janeiro de 2013
+base_de_dados %>%
+  filter(dia == 15)
+
+
+# 2. Usando a base de voos, escreva um código que devolva apenas os voos
 # que NÃO sairam do aeroporto JFK:
 
-# 3. Usando a base de voos, escreva um código que devolva apenas os voos 
-# que sairam do aeroporto JFK, e foram para Atlanta ("ATL"), 
+base_de_dados[base_de_dados$origem != "JFK",]
+
+# com dplyr
+base_de_dados %>%
+  filter(origem != "JFK")
+
+# 3. Usando a base de voos, escreva um código que devolva apenas os voos
+# que sairam do aeroporto JFK, e foram para Atlanta ("ATL"),
 # e salve em um objeto chamado voos_jfk_atlanta:
 
-# 4. Usando a base de voos, escreva um código que devolva apenas os voos 
+voos_jfk_atlanta <- base_de_dados[base_de_dados$origem == "JFK" & base_de_dados$destino == "ATL",]
+
+# com dplyr
+voos_jfk_atlanta <- base_de_dados %>%
+  filter(origem == "JFK", destino == "ATL")
+
+# 4. Usando a base de voos, escreva um código que devolva apenas os voos
 # que saíram nos dias 15/01/2013 ou 16/01/2013:
 
+# base R - com %in% e considerando que a base é de janeiro de 2013
+base_de_dados[base_de_dados$dia %in% c(15, 16),]
+# base R - com | e considerando que a base é de janeiro de 2013
+base_de_dados[base_de_dados$dia == 15 | base_de_dados$dia == 16,]
+
+
+# base R - com %in% e considerando dia mes e ano
+base_de_dados[base_de_dados$dia %in% c(15, 16) & base_de_dados$mes == 1 & base_de_dados$ano == 2013,]
+
+# base R - com | e considerando dia mes e ano
+base_de_dados[(base_de_dados$dia == 15 | base_de_dados$dia == 16) & base_de_dados$mes == 1 & base_de_dados$ano == 2013,]
+
+
+# com dplyr e %in% (resolucao mais elegante!)
+base_de_dados %>%
+  filter(dia %in% c(15,16), mes == 1, ano == 2013)
+
+# com dplyr e |
+base_de_dados %>%
+  filter((dia == 15 | dia == 16) & mes == 1 & ano == 2013)
 
 
 # filter com dplyr -----------------
@@ -97,10 +144,25 @@ avaliacoes <- data.frame(avaliacao_do_cliente, estado_de_nascimento)
 # subsetting (os colchetes [])
 
 # 1. Filtre as avaliações superiores a 3.
+# base R:
+avaliacoes[avaliacoes$avaliacao_do_cliente > 3, ]
+
+# dplyr:
+avaliacoes %>%
+  filter(avaliacao_do_cliente > 3)
 
 # 2. Filtre as avaliações de SP ou MT.
+# base R
+avaliacoes[avaliacoes$estado_de_nascimento %in% c("SP", "MT"),]
+
+# dplyr
+avaliacoes %>%
+  filter(estado_de_nascimento %in% c("SP", "MT"))
 
 # 3. Filtre as avaliações de PB ou MT com nota inferior a 4.
+# base R
+avaliacoes[avaliacoes$estado_de_nascimento %in% c("PB", "MT") & avaliacoes$avaliacao_do_cliente < 4,]
 
-
-
+# dplyr
+avaliacoes %>%
+  filter(estado_de_nascimento %in% c("PB", "MT"), avaliacao_do_cliente < 4)

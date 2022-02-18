@@ -23,13 +23,14 @@ Fora do horário de aula ou monitoria:
 
 ## Slides
 
-| slides                                                                                                                 | pdf                                                                                                                  |
-|:-----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
-| [01-introducao-ao-curso.html](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.html)     | [01-introducao-ao-curso.pdf](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.pdf)     |
-| [02-introducao-ao-RStudio.html](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.html) | [02-introducao-ao-RStudio.pdf](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.pdf) |
-| [03-introducao-ao-R.html](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.html)             | [03-introducao-ao-R.pdf](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.pdf)             |
-| [04-tabelas.html](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.html)                             | [04-tabelas.pdf](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.pdf)                             |
-| [05-filtros.html](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.html)                             | [05-filtros.pdf](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.pdf)                             |
+| slides                                                                                                                         | pdf                                                                                                                          |
+|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
+| [01-introducao-ao-curso.html](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.html)             | [01-introducao-ao-curso.pdf](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.pdf)             |
+| [02-introducao-ao-RStudio.html](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.html)         | [02-introducao-ao-RStudio.pdf](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.pdf)         |
+| [03-introducao-ao-R.html](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.html)                     | [03-introducao-ao-R.pdf](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.pdf)                     |
+| [04-tabelas.html](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.html)                                     | [04-tabelas.pdf](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.pdf)                                     |
+| [05-filtros.html](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.html)                                     | [05-filtros.pdf](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.pdf)                                     |
+| [06-controle-de-fluxo-e-loops.html](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.html) | [06-controle-de-fluxo-e-loops.pdf](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.pdf) |
 
 ## Scripts utilizados em aula
 
@@ -40,6 +41,7 @@ Fora do horário de aula ou monitoria:
 | [exemplos_de_aula/03-comparacoes-logicas-e-NA.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/03-comparacoes-logicas-e-NA.R) |
 | [exemplos_de_aula/04-filtros.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/04-filtros.R)                                   |
 | [exemplos_de_aula/05-pipe.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/05-pipe.R)                                         |
+| [exemplos_de_aula/06-loops.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/06-loops.R)                                       |
 
 ## Material extra
 
@@ -65,6 +67,10 @@ relacionadas com o conteúdo da aula).
 |    2 | Extra       | [Livro Estatística e Ciência de Dados](https://www.ime.usp.br/~jmsinger/MAE0217/cdados2021out12.pdf)                                                      |
 |    2 | Funções     | [Livro Ciência de Dados em R - Capítulo 4 - Pacotes](https://livro.curso-r.com/4-pacotes.html)                                                            |
 |    2 | Introdução  | [Livro Ciência de Dados em R - Capítulo 3 - R Base](https://livro.curso-r.com/3-r-base.html)                                                              |
+|    3 | Pipe        | [Post sobre o R 4.1](https://blog.curso-r.com/posts/2021-05-06-o-novo-pipe-esta-chegando/)                                                                |
+|    3 | Pipe        | [Live de lançamento do R 4.1](https://www.youtube.com/watch?v=RPSLFU_5OGk&t=3225s)                                                                        |
+|    3 | Pipe        | [Livro Ciência de Dados em R - Capítulo 6 - Pipe](https://livro.curso-r.com/6-pipe.html)                                                                  |
+|    4 | Introdução  | [Post sobre erros](https://blog.curso-r.com/posts/2021-03-29-desvendando-erros/)                                                                          |
 
 ## Redes sociais da Curso-R
 
