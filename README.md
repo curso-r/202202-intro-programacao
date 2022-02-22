@@ -31,6 +31,8 @@ Fora do horário de aula ou monitoria:
 | [04-tabelas.html](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.html)                                     | [04-tabelas.pdf](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.pdf)                                     |
 | [05-filtros.html](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.html)                                     | [05-filtros.pdf](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.pdf)                                     |
 | [06-controle-de-fluxo-e-loops.html](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.html) | [06-controle-de-fluxo-e-loops.pdf](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.pdf) |
+| [07-funcoes.html](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.html)                                     | [07-funcoes.pdf](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.pdf)                                     |
+| [08-manipulacao-de-arquivos.html](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.html)     | [08-manipulacao-de-arquivos.pdf](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.pdf)     |
 
 ## Scripts utilizados em aula
 
@@ -42,6 +44,12 @@ Fora do horário de aula ou monitoria:
 | [exemplos_de_aula/04-filtros.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/04-filtros.R)                                   |
 | [exemplos_de_aula/05-pipe.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/05-pipe.R)                                         |
 | [exemplos_de_aula/06-loops.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/06-loops.R)                                       |
+| [exemplos_de_aula/07-controle-de-fluxo.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/07-controle-de-fluxo.R)               |
+| [exemplos_de_aula/08-loops-com-if.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/08-loops-com-if.R)                         |
+| [exemplos_de_aula/09-funcoes.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/09-funcoes.R)                                   |
+| [exemplos_de_aula/09-instalar-pacotes.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/09-instalar-pacotes.R)                 |
+| [exemplos_de_aula/10-manipulacao-arquivos.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/10-manipulacao-arquivos.R)         |
+| [exemplos_de_aula/11-exemplo-source.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/11-exemplo-source.R)                     |
 
 ## Material extra
 
