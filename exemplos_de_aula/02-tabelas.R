@@ -388,7 +388,28 @@ amostra_avioes2 <- data.frame(
 
 
 
+# Importacao
+# url/excel
+
+library(readxl)
+url <- "http://orcamento.sf.prefeitura.sp.gov.br/orcamento/uploads/2022/basedadosexecucao2022.xlsx"
+destfile <- "basedadosexecucao2022.xlsx"
+curl::curl_download(url, destfile)
+basedadosexecucao2022 <- read_excel(destfile)
+View(basedadosexecucao2022)
 
 
+# url/csv - muito mais curto com readr
+library(readr)
+imdb <- read_csv("https://raw.githubusercontent.com/curso-r/main-r4ds-1/master/dados/imdb.csv")
+View(imdb)
 
 
+# google sheets/url
+
+url <- "https://docs.google.com/spreadsheets/d/1REPJkp1XCt-6ZkGSFO4A3U7pFWL3-CcV7xGZioP3Ryc/edit#gid=0"
+
+# install.packages("googlesheets4")
+library(googlesheets4)
+
+base <- googlesheets4::read_sheet(url)
