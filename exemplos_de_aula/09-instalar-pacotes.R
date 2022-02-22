@@ -11,7 +11,7 @@ install.packages("readr") # Não execute agora.
 ## Instalar Pacotes do GitHub ----------
 
 # Para isso, é necessário usar uma função do pacote
-# devtools.
+# devtools (ou o remotes).
 # Então primeiro é necessário instalar esse pacote:
 
 install.packages("devtools")  # Não execute agora. 
@@ -34,6 +34,10 @@ devtools::install_github("tidyverse/readr")  # Não execute agora.
 
 library(readr)
 
+library(dados)
+
+dados::pixar_filmes
+
 
 # Atualizando pacotes --------
 
@@ -48,6 +52,7 @@ library(readr)
 library(utils)
 update.packages()
 
+# |> # pipe nativo 
 
 # Na interface gráfica do RStudio: 
 # Na barra superior: Tools > "Check for package updates" > Selecione os pacotes 
