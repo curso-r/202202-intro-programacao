@@ -32,11 +32,13 @@ x <- 1
 
 if(x < 0){
   "negativo"
-} else {
+} else { # se não
   "não negativo"
 }
 
 # else-if: generaliza o comportamento do if
+
+x <- -10
 
 if(x < 0) {
   "negativo"
@@ -49,7 +51,9 @@ if(x < 0) {
 # Mais um exemplo de if! Contagem regressiva para o carnaval!
 
 hoje <- Sys.Date()
-carnaval <- as.Date("2021-02-16")
+carnaval <- as.Date("2022-02-26")
+
+#hoje <- as.Date("2022-04-01")
 
 if(hoje < carnaval){
   
@@ -62,9 +66,11 @@ if(hoje < carnaval){
   
 } else {
   
-  paste("O carnaval de 2021 já passou... agora só ano que vem!")
+  paste("O carnaval de 2022 já passou... agora só ano que vem!")
   
 }
+
+
 
 # Exercícios --------------------------------------------------------------
 
@@ -76,20 +82,19 @@ if(hoje < carnaval){
 # reprovada se tiver nota menor que 3,
 # e recuperação se tiver nota maior que 3 e menor que 5.
 
+nota <- 2.5
 
-nota <- 5 
-
-if(nota >= 5){
+if(nota >= 5) {
+  print("Aprovada")
   
-  print("....")
-  
-} else if(....) {
-  
+} else if (nota < 3) {
   print("Reprovada")
   
-} else {
+} else if (nota < 5 & nota > 4) {
+  print("Recuperação, mas tá perto de passar! Enviar um trabalho complementar.")
   
-  print("...")
+} else {
+  print("Recuperação. Tem que fazer a prova de recuperação.")
 }
 
 # 2. Continuando o exercício anterior: 
@@ -115,8 +120,29 @@ head(base_de_dados_fev)
 
 base_jan_fev <- rbind(base_de_dados, base_de_dados_fev)
 
+library(dplyr)
+glimpse(base_jan_fev)
+
+
+# testando a ideia do ale
+
+jan_recortada <- base_de_dados[c("mes", "origem", "destino")]
+
+fev_recortada <- base_de_dados_fev[c("mes", "origem", "cauda")]
+
+# rbind não funciona bem se as colunas não forem
+# exatamente as mesmas
+# bind_recortes <- rbind(jan_recortada, fev_recortada)
+
+# se precisar unir bases que tem numero de colunas diferentes,
+# use a funcao bind_rows do dplyr
+bind_recortes <- bind_rows(jan_recortada, fev_recortada)
+
 # E se eu quiser adicionar uma nova coluna? 
 # cbind()   (de column bind)
 
 nome_mes <- "janeiro"
-cbind(base_de_dados, nome_mes)
+base_jan <- cbind(base_de_dados, nome_mes)
+
+# como fazer isso com a sintaxe do dplyr?
+base_jan_dplyr <- mutate(base_de_dados, nome_mes = "janeiro")
