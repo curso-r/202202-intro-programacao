@@ -430,16 +430,73 @@ unique(voos_2013$mes)
 
 # 1. Inclua no nosso loop os arquivos que indo até junho
 
+arquivos <- c("dados/voos_de_janeiro.csv",
+              "dados/voos_de_fevereiro.csv",
+              "dados/voos_de_marco.csv",
+              "dados/voos_de_abril.csv",
+              "dados/voos_de_maio.csv",
+              "dados/voos_de_junho.csv")
+
 # 2. Adapte o script anterior para que ele imprima os maiores atrasos e também
 # os voos que saíram mais adiantados.
+
+library(readr)
+library(dplyr)
+
+for(arquivo in arquivos){
+
+
+  dados <- suppressMessages(read_csv2(arquivo))
+
+
+  maior_atraso <- max(dados$atraso_saida, na.rm = TRUE)
+
+  mais_adiantado <- min(dados$atraso_saida, na.rm = TRUE)
+
+  texto_de_saida <- paste0("O maior atraso no arquivo ",
+                           arquivo,
+                           " foi de ",
+                           maior_atraso,
+                           " minutos. O tempo que o voo mais adiantado saiu foi ",
+                           abs(mais_adiantado),
+                           " minutos antes do esperado." )
+
+  print(texto_de_saida)
+}
 
 # Dica: Na nossa base de dados um valor negativo na coluna "atraso_saida" indica
 # que o voo saiu adiantado
 
 
 
+
+# resposta daniel -----
+
+library(readr)
+library(dplyr)
+
+arquivos <- c("dados/voos_de_janeiro.csv", "dados/voos_de_fevereiro.csv", "dados/voos_de_marco.csv",
+              "dados/voos_de_abril.csv", "dados/voos_de_maio.csv", "dados/voos_de_junho.csv")
+
+for (arquivo in arquivos) {
+  dados <- read_csv2(arquivo)
+  maiores_atrasos <- max(dados$atraso_saida, na.rm = TRUE)
+  print(paste0("o maior atraso observado foi de ", maiores_atrasos))
+  maior_adiantamento <- min(dados$atraso_saida, na.rm = TRUE)
+  print(paste0("o voo que saiu mais adiantado saiu ", maior_adiantamento, " minutos"))
+  print(paste0("ou seja, o voo mais adiantado saiu ", abs(maior_adiantamento), " minutos antes do previsto"))
+}
+
+for (x in 1:10) {
+  print(x)
+  Sys.sleep(0.5)
+}
+
+
+
+
 # While ------
-# O while é outra estrutura de repetição muito comum em 
+# O while é outra estrutura de repetição muito comum em
 # linguagens de programação.
 
 # Leia como: Enquanto uma condição for verdadeira, faça XYZ.
@@ -452,5 +509,7 @@ unique(voos_2013$mes)
 dia <- 1
 while (dia < 30) {
   print(paste0("O mês ainda não acabou! Hoje é dia ", dia, "!"))
-  dia <- dia + 1
+  dia <- dia + 1 # se comentar essa linha, o loop nao acabará!
+  Sys.sleep(0.1)
 }
+
