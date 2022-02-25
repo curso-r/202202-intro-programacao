@@ -36,20 +36,21 @@ Fora do horário de aula ou monitoria:
 
 ## Scripts utilizados em aula
 
-| script                                                                                                                                                           |
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [exemplos_de_aula/01-introducao.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/01-introducao.R)                             |
-| [exemplos_de_aula/02-tabelas.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/02-tabelas.R)                                   |
-| [exemplos_de_aula/03-comparacoes-logicas-e-NA.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/03-comparacoes-logicas-e-NA.R) |
-| [exemplos_de_aula/04-filtros.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/04-filtros.R)                                   |
-| [exemplos_de_aula/05-pipe.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/05-pipe.R)                                         |
-| [exemplos_de_aula/06-loops.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/06-loops.R)                                       |
-| [exemplos_de_aula/07-controle-de-fluxo.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/07-controle-de-fluxo.R)               |
-| [exemplos_de_aula/08-loops-com-if.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/08-loops-com-if.R)                         |
-| [exemplos_de_aula/09-funcoes.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/09-funcoes.R)                                   |
-| [exemplos_de_aula/09-instalar-pacotes.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/09-instalar-pacotes.R)                 |
-| [exemplos_de_aula/10-manipulacao-arquivos.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/10-manipulacao-arquivos.R)         |
-| [exemplos_de_aula/11-exemplo-source.R](https://github.com/curso-r/202202-intro-programacao/blob/master/exemplos_de_aula/11-exemplo-source.R)                     |
+| script                                                                                                                       |
+|:-----------------------------------------------------------------------------------------------------------------------------|
+| [01-introducao.R](https://github.com/curso-r/202202-intro-programacao/blob/main/01-introducao.R)                             |
+| [02-tabelas.R](https://github.com/curso-r/202202-intro-programacao/blob/main/02-tabelas.R)                                   |
+| [03-comparacoes-logicas-e-NA.R](https://github.com/curso-r/202202-intro-programacao/blob/main/03-comparacoes-logicas-e-NA.R) |
+| [04-filtros.R](https://github.com/curso-r/202202-intro-programacao/blob/main/04-filtros.R)                                   |
+| [05-pipe.R](https://github.com/curso-r/202202-intro-programacao/blob/main/05-pipe.R)                                         |
+| [06-loops.R](https://github.com/curso-r/202202-intro-programacao/blob/main/06-loops.R)                                       |
+| [07-controle-de-fluxo.R](https://github.com/curso-r/202202-intro-programacao/blob/main/07-controle-de-fluxo.R)               |
+| [08-loops-com-if.R](https://github.com/curso-r/202202-intro-programacao/blob/main/08-loops-com-if.R)                         |
+| [09-funcoes.R](https://github.com/curso-r/202202-intro-programacao/blob/main/09-funcoes.R)                                   |
+| [09-instalar-pacotes.R](https://github.com/curso-r/202202-intro-programacao/blob/main/09-instalar-pacotes.R)                 |
+| [10-manipulacao-arquivos.R](https://github.com/curso-r/202202-intro-programacao/blob/main/10-manipulacao-arquivos.R)         |
+| [11-exemplo-source.R](https://github.com/curso-r/202202-intro-programacao/blob/main/11-exemplo-source.R)                     |
+| [12-aula-final.R](https://github.com/curso-r/202202-intro-programacao/blob/main/12-aula-final.R)                             |
 
 ## Material extra
 

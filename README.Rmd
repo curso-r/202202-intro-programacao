@@ -80,11 +80,11 @@ pasta <- "exemplos_de_aula/"
 
 knitr::kable(
   tibble::tibble(
-    script = CursoRopen:::list_github_files(params$main_repo, pasta, ".R$"),
+    script = list.files(pasta, pattern = ".R"),
     link = paste0(
       "https://github.com/curso-r/",
       params$turma,
-      "/blob/master/",
+      "/blob/main/",
       script
     )
   ) %>%
