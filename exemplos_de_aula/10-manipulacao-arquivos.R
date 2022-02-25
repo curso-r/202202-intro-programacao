@@ -24,6 +24,7 @@
 
 # Como saber qual o nosso diretório de trabalho atual?
 getwd()
+# setwd() # existe, mas nao use!
 
 # Existem duas formas de informar para o R os caminhos até um arquivo ou pasta
 # no computador: caminhos absolutos e relativos.
@@ -31,11 +32,15 @@ getwd()
 # Caminhos absolutos: são completos, partindo da "raíz" do computador.
 "/home/william/Documents/Curso-R/main-r4ds-1/dados/imdb.csv"
 
-# Caminhos relativos: são relativos ao  diretório de trabalho atual, partem dele.
+# Caminhos relativos: são relativos ao  diretório de trabalho atual, 
+# partem dele.
 "dados/imdb.csv"
+"dados/voos_de_janeiro.csv"
 
 # (cara(o) professora(o), favor lembrar de falar da dica 
-# de navegação entre as aspas e a tecla tab)
+# de navegação entre as aspas e a tecla tab) 
+
+
 
 # Lidando com arquivos
 
@@ -55,16 +60,28 @@ list.files("/Users/") # Usando caminho absoluto, consigo navegar fora do meu
 
 # Essa função possui argumentos muito interessantes! por exemplo:
 
-# o argumento pattern define qual extensão deseja pesquisar. 
+# o argumento pattern define qual extensão deseja pesquisar,
+# ou padroes nos textos
+
+list.files(pattern = "dados")
 
 list.files(pattern = ".csv")
+
+list.files("dados/", pattern = ".csv")
 
 # o argumento recursive, caso seja verdadeiro, também procurará arquivos nas pastas 
 # que fazem parte da pasta que você está verificando
 list.files(recursive = TRUE)
 
+list.files(recursive = TRUE)
+
 # o argumento full.names, caso seja verdadeiro, mantém o caminho relativo 
 # completo até o arquivo.
+arquivos_dados <- list.files(path = "dados", full.names = TRUE)
+
+readr::read_csv2(arquivos_dados[1]) 
+
+
 list.files(full.names = TRUE)
 
 
@@ -73,6 +90,13 @@ list.files(full.names = TRUE)
 # até esse arquivo.
 
 arquivos <- list.files("dados", pattern = ".csv", full.names = TRUE) 
+
+library(purrr)
+library(readr)
+library(dplyr)
+voos_2013 <- map_dfr(arquivos, read_csv2)
+
+voos_2013 |> count(mes) # podemos ver que temos todos os meses na base!
 
 # Com esse vetor, com uso de outras funções, será possível abrir diversas tabelas
 # (com a mesma estrutura) em uma única base no R com poucas linhas de código.
@@ -92,6 +116,8 @@ library(fs) # carregue o pacote para usar
 # obs: caso a pasta já exista, nada acontecerá.
 
 fs::dir_create("exemplo_dir_create")
+
+fs::dir_create("dados/exemplos")
 
 
 # Exemplo 2: Quero criar um arquivo diretamente do R!
@@ -122,7 +148,7 @@ fs::file_create("pasta_com_arquivos_baguncados/UM_ARQUIVO_COM_CAPS_LOCK.R")
 fs::file_create("pasta_com_arquivos_baguncados/OUTRO_ARQUIVO_COM_CAPS_LOCK.R")
 
 # Agora vamos criar vetores: com os nomes originais, e com os novos nomes
-nomes_originais <- list.files("pasta_com_arquivos_baguncados/", full.names = TRUE) 
+nomes_originais <- list.files("pasta_com_arquivos_baguncados", full.names = TRUE) 
 
 novos_nomes <- tolower(nomes_originais)  
 # a função tolower() é usada para transformar letras maiúsculas em minúsculas
@@ -135,3 +161,22 @@ fs::file_move(nomes_originais, novos_nomes)
 # file_delete()
 
 fs::file_delete("pasta_com_arquivos_baguncados")
+
+
+fs::file_delete("exemplo_dir_create/")
+fs::file_delete("exemplo_file_create.R")
+fs::file_delete("basedadosexecucao2022.xlsx")
+
+# exemplo da duvida
+library(stringr)
+arquivos <- list.files(recursive = TRUE, full.names = TRUE)
+arquivos
+arquivos_para_excluir <- arquivos[!str_detect(arquivos, pattern = ".R$")]
+
+
+list.files(path = "~/Downloads", recursive = TRUE, full.names = TRUE)
+
+
+arquivo <- "/Users/beatrizmilz/Downloads/lattes.pdf"
+
+file_move(arquivo, "lattes.pdf") # pacote fs
