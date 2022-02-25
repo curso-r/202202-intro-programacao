@@ -5,7 +5,7 @@ params:
   trilha_clean: programacao_para_ciencia_de_dados
   turma: 202202-intro-programacao
   nome_curso: Introdução a programação com R
-  num_aula: 5
+  num_aula: 6
   download_material: 'TRUE'
 ---
 
