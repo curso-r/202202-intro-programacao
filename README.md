@@ -23,8 +23,16 @@ Fora do horário de aula ou monitoria:
 
 ## Slides
 
-| slides | pdf |
-|:-------|:----|
+| slides                                                                                                                         | pdf                                                                                                                          |
+|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
+| [01-introducao-ao-curso.html](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.html)             | [01-introducao-ao-curso.pdf](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.pdf)             |
+| [02-introducao-ao-RStudio.html](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.html)         | [02-introducao-ao-RStudio.pdf](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.pdf)         |
+| [03-introducao-ao-R.html](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.html)                     | [03-introducao-ao-R.pdf](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.pdf)                     |
+| [04-tabelas.html](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.html)                                     | [04-tabelas.pdf](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.pdf)                                     |
+| [05-filtros.html](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.html)                                     | [05-filtros.pdf](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.pdf)                                     |
+| [06-controle-de-fluxo-e-loops.html](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.html) | [06-controle-de-fluxo-e-loops.pdf](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.pdf) |
+| [07-funcoes.html](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.html)                                     | [07-funcoes.pdf](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.pdf)                                     |
+| [08-manipulacao-de-arquivos.html](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.html)     | [08-manipulacao-de-arquivos.pdf](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.pdf)     |
 
 ## Scripts utilizados em aula
 
