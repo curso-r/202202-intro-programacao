@@ -51,7 +51,6 @@ paths <- CursoRopen:::list_github_files(params$main_repo, "slides/", "[0-9]-.*ht
   dplyr::mutate(file_path_sem_extencao = tools::file_path_sans_ext(paths)) %>% 
   dplyr::select(-name)
 
-
 paths_pdf <- CursoRopen:::list_github_files(params$main_repo, "slides/", "[0-9]-.*pdf$") %>% 
   tibble::enframe(value = "paths_pdf") %>% 
   dplyr::mutate(file_path_sem_extencao = tools::file_path_sans_ext(paths_pdf)) %>%
@@ -75,22 +74,23 @@ dplyr::mutate(
 ## Scripts utilizados em aula
 
 ```{r}
-pasta <- "exemplos_de_aula/"
+pasta <- "exemplos_de_aula"
 
 
 knitr::kable(
   tibble::tibble(
-    script = list.files(pasta, pattern = ".R"),
+    script = list.files(pasta, pattern = ".R", full.names = TRUE),
     link = paste0(
-      "https://github.com/curso-r/",
+      "https://raw.githubusercontent.com/curso-r/",
       params$turma,
-      "/blob/main/",
+      "/main/",
       script
     )
   ) %>%
     dplyr::mutate(script = glue::glue("[{script}]({link})")) %>%
     dplyr::select(script)
 )
+
 ```
 
 
