@@ -1,0 +1,14 @@
+## Link do banco de dados inicial 
+
+https://raw.githubusercontent.com/adaoduque/Brasileirao_Dataset/master/campeonato-brasileiro-full.csv
+
+
+## link do repositório das funções para cálculo de pontos e resultados no Github
+
+https://raw.githubusercontent.com/AlexandreStos/ef_functions/main/pontos_br
+
+
+
+## link da publicação online do rmarkdown no rpubs.com
+
+https://rpubs.com/alexandre_santos_ef/mando_corinthians

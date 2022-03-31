@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/878365/632100761d5540dbb026123b5199a6c4
+bundleId: https://api.rpubs.com/api/v1/document/878365/632100761d5540dbb026123b5199a6c4
+url: http://rpubs.com/alexandre_santos_ef/878365/edit
+when: 1647373812.81477
+lastSyncTime: 1647373812.81477

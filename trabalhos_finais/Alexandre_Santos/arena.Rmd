@@ -1,0 +1,754 @@
+---
+title: ' A força do povo'
+author: ' Por *Alexandre Santos* '
+date: '  '
+output:
+  html_document:
+    theme: readable
+    toc: yes
+    highlight: zenburn
+  word_document:
+    toc: yes
+  pdf_document:
+    toc: yes
+theme: vignettes
+---
+
+```{r, include=FALSE}
+```
+
+## Sport Club Corinthians Paulista
+
+
+![](https://publisher-publish.s3.eu-central-1.amazonaws.com/pb-brasil247/swp/jtjeq9/media/20190521010540_d2cc7e852b252172288f57d0e2a8d0607ddbb26bcbaf4c9ba074e1cc4a5ab580.jpeg) **Legenda**: escudo atual do Sport Club Corinthians Paulista
+
+
+
+Fundado em 1° de Setembro de 1910 por operários, traz na sua fundação a marca impressa na alma de ser um clube de representatividade popular, do povo.  
+Time de uma torcida apaixonada, sim, time de uma torcida, apaixonada, louca, ou simplesmente um bando de loucos.  
+
+A força desta torcida foi testada em outros momentos históricos como na Invasão Corinthiana 
+
+![](https://static.corinthians.com.br/uploads/1606999201e4873aa9a05cc5ed839561d121516766.jpg) **Legenda**: Invasão corinthiana no Maracanã em 76
+
+Esta paixão venceu a seca de titulos de 23 anos, de maneira sofrida em 1977, a seca transformou um time em religião, uma nação.
+
+![](http://cdn.espn.com.br/image/wide/622_4e760d67-01e5-3328-b629-f9628024d81b.png)  
+**Legenda**: fim do jejum em 77, gol de Basílio.
+
+Inumeros momentos demosntraram a relevância desta torcida para o rendimento esportivo do corinthians, por exemplo, no 2° título mundial no Japão. 
+
+![](https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2020/03/corinthians-10-829x397.jpg)
+**Legenda**: Mundial de clubes do Japão
+
+## Importância da Fiel e do mando de jogo nos resultados esportivos do futebol profissional
+
+É indiscutivel a importância da torcida nas vitórias deste clube, entretanto, uma descrição detalhada dos resultados  em campeonatos brasileiros no formato de pontos corridos, ou seja, entre 2003 e 2021, traria uma visão quantitativa do seu impacto.  
+Portanto, analisarei a pontuação do Corinthians em campeonatos brasileiros (2003-2021), pontuação em anos de títulos, gols e saldo de gols, traçando um panorama a respeito da importância dos jogos em casa, ou seja, no Estádio do Pacaembu e agora Neo Química Arena.
+
+
+### Um pouco de dados
+
+
+#####  Tabela 1. Descrição dos resultados do Corinthians no Campeonato Brasileiro (2003-2021).
+|                            	| **Mandante** 	| **Visitante** 	|
+|----------------------------	|:------------:	|:-------------:	|
+| **Número de Jogos**        	|      352     	|      352      	|
+| **Número de vitórias**     	|      193     	|      103      	|
+| **Número de derrotas**     	|      64      	|      140      	|
+| **Números de empates**     	|      95      	|      109      	|
+| **Pontos disputados**      	|     1026     	|      1026     	|
+| **Pontos conquistados**    	|      674     	|      418      	|
+| **Pontos conquistados(%)** 	|     65,7     	|      40,7     	|
+
+Quando visualizamos número pontos, percebemos um aumento no aproveitamento de pontos de 25% quando os jogos são realizados em casa, além disso, apresentando quase o dobro de vitórias jogando em casa.
+
+```{r, echo=F, message=F}
+library(prettydoc)
+library(tidyverse)
+library(lubridate) 
+```
+
+```{r, include=F}
+link <- 
+  c("https://raw.githubusercontent.com/adaoduque/Brasileirao_Dataset/master/campeonato-brasileiro-full.csv")
+bra_2003_2021 <- read_csv(link)
+```
+```{r, include= F}
+jogos_corinthians <-
+  bra_2003_2021 %>% 
+filter(mandante == "Corinthians" | visitante == "Corinthians") 
+```
+```{r, include=F}
+jogos_corinthians<-
+  jogos_corinthians %>%   
+select(rodada, data, dia, hora, mandante, visitante, vencedor, arena, 
+       mandante_placar, visitante_placar)
+```
+```{r, include=F}
+jogos_corinthians <-jogos_corinthians %>% 
+mutate(saldo_mandante = mandante_placar-visitante_placar)
+```
+
+```{r,, include=F}
+jogos_corinthians <-jogos_corinthians %>% 
+  mutate(saldo_visitante = visitante_placar-mandante_placar)
+```
+
+```{r, include=F}
+jogos_corinthians <- jogos_corinthians %>% 
+mutate(ano = year(ymd(data)))
+```
+
+```{r, include=F}
+corinthians_mandante <-jogos_corinthians %>% 
+  filter (mandante == "Corinthians")
+```
+
+
+```{r, include=F}
+corinthians_visitante <-jogos_corinthians %>% 
+  filter (mandante != "Corinthians")
+```
+
+```{r, include=F}
+source("https://raw.githubusercontent.com/AlexandreStos/ef_functions/main/pontos_br")
+```
+
+```{r, include=F}
+corinthians_mandante  <- corinthians_mandante %>% 
+  mutate(pontos = pontos_mandante(mandante_placar,visitante_placar))
+```
+```{r, include=F}
+corinthians_visitante <- corinthians_visitante %>% 
+  mutate(pontos = pontos_visitante(mandante_placar,visitante_placar))
+```
+```{r, include=F}
+corinthians_mandante  <- corinthians_mandante %>% 
+  mutate(resultado = resultado_mandante(mandante_placar,visitante_placar))
+```
+```{r, include=F}
+corinthians_visitante  <- corinthians_visitante %>% 
+  mutate(resultado = resultado_visitante(mandante_placar,visitante_placar))
+```
+
+```{r, include=F}
+jogos_man <- count(corinthians_mandante, mandante =="Corinthians")
+```
+```{r, include=F}
+pontos_total_2003_2021<-sum (corinthians_mandante$pontos)
+pontos_poss_2003_2021 <- (2021-2003)*(19*3)
+porc_pontos_2003_2021 <- (pontos_total_2003_2021/pontos_poss_2003_2021)*100
+porc_pontos_2003_2021 <-round(porc_pontos_2003_2021, 1)
+```
+```{r, include=F}
+pontos_total_vis_2003_2021<-sum (corinthians_visitante$pontos)
+porc_pontos_vis_2003_2021 <- (pontos_total_vis_2003_2021/pontos_poss_2003_2021)*100
+porc_pontos_vis_2003_2021 <- round(porc_pontos_vis_2003_2021, 1)
+```
+```{r, include=F}
+n_vitorias_man <- count(corinthians_mandante, resultado=="vitoria")
+n_empates_man <- count(corinthians_mandante, resultado=="empate")
+n_derrotas_man <- count(corinthians_mandante, resultado =="derrota")
+```
+```{r, include=F}
+n_vitorias_vis <- count(corinthians_visitante, resultado =="vitoria")
+n_empates_vis <- count(corinthians_visitante, resultado =="empate")
+n_derrotas_vis <- count(corinthians_visitante, resultado =="derrota")
+```
+
+
+```{r, include=F}
+pontos_poss_ano <- (19*3) # 19 partidas como mandante valendo 3 pontos
+```
+
+
+```{r, include=F}
+mandante_2003 <- corinthians_mandante %>% filter(ano == "2003")
+p_mandante_2003 <- sum(mandante_2003$pontos)
+porc_pontos_2003 <- (p_mandante_2003/pontos_poss_ano)*100 # mult. por 100 para transformar em porcentagem
+porc_pontos_2003 <- round(porc_pontos_2003, 0)
+```
+```{r, include=F}
+mandante_2004 <- corinthians_mandante %>% filter(ano == "2004")
+p_mandante_2004 <- sum(mandante_2004$pontos)
+porc_pontos_2004 <- (p_mandante_2004/pontos_poss_ano)*100
+porc_pontos_2004 <- round(porc_pontos_2004, 0)
+```
+```{r, include=F}
+mandante_2005 <- corinthians_mandante %>% filter(ano == "2005")
+p_mandante_2005 <- sum(mandante_2005$pontos)
+porc_pontos_2005 <- (p_mandante_2005/pontos_poss_ano)*100 
+porc_pontos_2005 <- round(porc_pontos_2005, 0)
+```
+```{r, include=F}
+mandante_2006 <- corinthians_mandante %>% filter(ano == "2006")
+p_mandante_2006 <- sum(mandante_2006$pontos)
+porc_pontos_2006 <- (p_mandante_2006/pontos_poss_ano)*100 
+porc_pontos_2006 <- round(porc_pontos_2006, 0)
+```
+```{r, include=F}
+mandante_2007 <- corinthians_mandante %>% filter(ano == "2007")
+p_mandante_2007 <- sum(mandante_2007$pontos)
+porc_pontos_2007 <- (p_mandante_2007/pontos_poss_ano)*100 
+porc_pontos_2007 <- round(porc_pontos_2007, 0)
+```
+```{r, include=F}
+mandante_2009 <- corinthians_mandante %>% filter(ano == "2009")
+p_mandante_2009 <- sum(mandante_2009$pontos)
+porc_pontos_2009 <- (p_mandante_2009/pontos_poss_ano)*100 
+porc_pontos_2009 <- round(porc_pontos_2009, 0)
+```
+```{r, include=F}
+mandante_2010 <- corinthians_mandante %>% filter(ano == "2010")
+p_mandante_2010 <- sum(mandante_2010$pontos)
+porc_pontos_2010 <- (p_mandante_2010/pontos_poss_ano)*100 
+porc_pontos_2010 <- round(porc_pontos_2010, 0)
+```
+```{r, include=F}
+mandante_2011 <- corinthians_mandante %>% filter(ano == "2011")
+p_mandante_2011 <- sum(mandante_2011$pontos)
+porc_pontos_2011 <- (p_mandante_2011/pontos_poss_ano)*100 
+porc_pontos_2011 <- round(porc_pontos_2011, 0)
+```
+```{r, include=F}
+mandante_2012 <- corinthians_mandante %>% filter(ano == "2012")
+p_mandante_2012 <- sum(mandante_2012$pontos)
+porc_pontos_2012 <- (p_mandante_2012/pontos_poss_ano)*100 
+porc_pontos_2012 <- round(porc_pontos_2012, 0)
+```
+```{r, include=F}
+mandante_2013 <- corinthians_mandante %>% filter(ano == "2013")
+p_mandante_2013 <- sum(mandante_2013$pontos)
+porc_pontos_2013 <- (p_mandante_2013/pontos_poss_ano)*100 
+porc_pontos_2013 <- round(porc_pontos_2013, 0)
+```
+```{r, include=F}
+mandante_2014 <- corinthians_mandante %>% filter(ano == "2014")
+p_mandante_2014 <- sum(mandante_2014$pontos)
+porc_pontos_2014 <- (p_mandante_2014/pontos_poss_ano)*100 
+porc_pontos_2014 <- round(porc_pontos_2014, 0)
+```
+```{r, include=F}
+mandante_2015 <- corinthians_mandante %>% filter(ano == "2015")
+p_mandante_2015 <- sum(mandante_2015$pontos)
+porc_pontos_2015 <- (p_mandante_2015/pontos_poss_ano)*100 
+porc_pontos_2015 <- round(porc_pontos_2015, 0)
+```
+```{r, include=F}
+mandante_2016 <- corinthians_mandante %>% filter(ano == "2016")
+p_mandante_2016 <- sum(mandante_2016$pontos)
+porc_pontos_2016 <- (p_mandante_2016/pontos_poss_ano)*100 
+porc_pontos_2016 <- round(porc_pontos_2016, 0)
+```
+
+```{r, include=F}
+mandante_2017 <- corinthians_mandante %>% filter(ano == "2017")
+p_mandante_2017 <- sum(mandante_2017$pontos)
+porc_pontos_2017 <- (p_mandante_2017/pontos_poss_ano)*100 
+porc_pontos_2017 <- round(porc_pontos_2017, 0)
+```
+```{r, include=F}
+mandante_2018 <- corinthians_mandante %>% filter(ano == "2018")
+p_mandante_2018 <- sum(mandante_2018$pontos)
+porc_pontos_2018 <- (p_mandante_2018/pontos_poss_ano)*100 
+porc_pontos_2018 <- round(porc_pontos_2018, 0)
+```
+```{r, include=F}
+mandante_2019 <- corinthians_mandante %>% filter(ano == "2019")
+p_mandante_2019 <- sum(mandante_2019$pontos)
+porc_pontos_2019 <- (p_mandante_2019/pontos_poss_ano)*100 
+porc_pontos_2019 <- round(porc_pontos_2019, 0)
+```
+```{r, include=F}
+mandante_2020 <- corinthians_mandante %>% filter(ano == "2020")
+p_mandante_2020 <- sum(mandante_2020$pontos)
+porc_pontos_2020 <- (p_mandante_2020/pontos_poss_ano)*100 
+porc_pontos_2020 <- round(porc_pontos_2020, 0)
+```
+```{r, include=F}
+mandante_2021 <- corinthians_mandante %>% filter(ano == "2021")
+p_mandante_2021 <- sum(mandante_2021$pontos)
+porc_pontos_2021 <- (p_mandante_2021/pontos_poss_ano)*100 
+porc_pontos_2021 <- round(porc_pontos_2021, 0)
+```
+```{r, include=F}
+visitante_2003 <- corinthians_visitante %>% filter(ano == "2003")
+p_visitante_2003 <- sum(visitante_2003$pontos)
+porc_pontos_vis_2003 <- (p_visitante_2003/pontos_poss_ano)*100 # mult. por 100 para transformar em porcentagem
+porc_pontos_vis_2003 <- round(porc_pontos_vis_2003, 0)
+```
+```{r, include=F}
+visitante_2004 <- corinthians_visitante %>% filter(ano == "2004")
+p_visitante_2004 <- sum(visitante_2004$pontos)
+porc_pontos_vis_2004 <- (p_visitante_2004/pontos_poss_ano)*100
+porc_pontos_vis_2004 <- round(porc_pontos_vis_2004, 0)
+```
+```{r, include=F}
+visitante_2005 <- corinthians_visitante %>% filter(ano == "2005")
+p_visitante_2005 <- sum(visitante_2005$pontos)
+porc_pontos_vis_2005 <- (p_visitante_2005/pontos_poss_ano)*100 
+porc_pontos_vis_2005 <- round(porc_pontos_vis_2005, 0)
+```
+```{r, include=F}
+visitante_2006 <- corinthians_visitante %>% filter(ano == "2006")
+p_visitante_2006 <- sum(visitante_2006$pontos)
+porc_pontos_vis_2006 <- (p_visitante_2006/pontos_poss_ano)*100 
+porc_pontos_vis_2006 <- round(porc_pontos_vis_2006, 0)
+```
+```{r, include=F}
+visitante_2007 <- corinthians_visitante %>% filter(ano == "2007")
+p_visitante_2007 <- sum(visitante_2007$pontos)
+porc_pontos_vis_2007 <- (p_visitante_2007/pontos_poss_ano)*100 
+porc_pontos_vis_2007 <- round(porc_pontos_vis_2007, 0)
+```
+```{r, include=F}
+visitante_2009 <- corinthians_visitante %>% filter(ano == "2009")
+p_visitante_2009 <- sum(visitante_2009$pontos)
+porc_pontos_vis_2009 <- (p_visitante_2009/pontos_poss_ano)*100 
+porc_pontos_vis_2009 <- round(porc_pontos_vis_2009, 0)
+```
+```{r, include=F}
+visitante_2010 <- corinthians_visitante %>% filter(ano == "2010")
+p_visitante_2010 <- sum(visitante_2010$pontos)
+porc_pontos_vis_2010 <- (p_visitante_2010/pontos_poss_ano)*100 
+porc_pontos_vis_2010 <- round(porc_pontos_vis_2010, 0)
+```
+```{r, include=F}
+visitante_2011 <- corinthians_visitante %>% filter(ano == "2011")
+p_visitante_2011 <- sum(visitante_2011$pontos)
+porc_pontos_vis_2011 <- (p_visitante_2011/pontos_poss_ano)*100 
+porc_pontos_vis_2011 <- round(porc_pontos_vis_2011, 0)
+```
+```{r, include=F}
+visitante_2012 <- corinthians_visitante %>% filter(ano == "2012")
+p_visitante_2012 <- sum(visitante_2012$pontos)
+porc_pontos_vis_2012 <- (p_visitante_2012/pontos_poss_ano)*100 
+porc_pontos_vis_2012 <- round(porc_pontos_vis_2012, 0)
+```
+```{r, include=F}
+visitante_2013 <- corinthians_visitante %>% filter(ano == "2013")
+p_visitante_2013 <- sum(visitante_2013$pontos)
+porc_pontos_vis_2013 <- (p_visitante_2013/pontos_poss_ano)*100 
+porc_pontos_vis_2013 <- round(porc_pontos_vis_2013, 0)
+```
+```{r, include=F}
+visitante_2014 <- corinthians_visitante %>% filter(ano == "2014")
+p_visitante_2014 <- sum(visitante_2014$pontos)
+porc_pontos_vis_2014 <- (p_visitante_2014/pontos_poss_ano)*100 
+porc_pontos_vis_2014 <- round(porc_pontos_vis_2014, 0)
+```
+```{r, include=F}
+visitante_2015 <- corinthians_visitante %>% filter(ano == "2015")
+p_visitante_2015 <- sum(visitante_2015$pontos)
+porc_pontos_vis_2015 <- (p_visitante_2015/pontos_poss_ano)*100 
+porc_pontos_vis_2015 <- round(porc_pontos_vis_2015, 0)
+```
+```{r, include=F}
+visitante_2016 <- corinthians_visitante %>% filter(ano == "2016")
+p_visitante_2016 <- sum(visitante_2016$pontos)
+porc_pontos_vis_2016 <- (p_visitante_2016/pontos_poss_ano)*100 
+porc_pontos_vis_2016 <- round(porc_pontos_vis_2016, 0)
+```
+```{r, include=F}
+visitante_2017 <- corinthians_visitante %>% filter(ano == "2017")
+p_visitante_2017 <- sum(visitante_2017$pontos)
+porc_pontos_vis_2017 <- (p_visitante_2017/pontos_poss_ano)*100 
+porc_pontos_vis_2017 <- round(porc_pontos_vis_2017, 0)
+```
+
+```{r, include=F}
+visitante_2018 <- corinthians_visitante %>% filter(ano == "2018")
+p_visitante_2018 <- sum(visitante_2018$pontos)
+porc_pontos_vis_2018 <- (p_visitante_2018/pontos_poss_ano)*100 
+porc_pontos_vis_2018 <- round(porc_pontos_vis_2018, 0)
+```
+```{r, include=F}
+visitante_2019 <- corinthians_visitante %>% filter(ano == "2019")
+p_visitante_2019 <- sum(visitante_2019$pontos)
+porc_pontos_vis_2019 <- (p_visitante_2019/pontos_poss_ano)*100 
+porc_pontos_vis_2019 <- round(porc_pontos_vis_2019, 0)
+```
+```{r, include=F}
+visitante_2020 <- corinthians_visitante %>% filter(ano == "2020")
+p_visitante_2020 <- sum(visitante_2020$pontos)
+porc_pontos_vis_2020 <- (p_visitante_2020/pontos_poss_ano)*100 
+porc_pontos_vis_2020 <- round(porc_pontos_vis_2020, 0)
+```
+```{r, include=F}
+visitante_2021 <- corinthians_visitante %>% filter(ano == "2021")
+p_visitante_2021 <- sum(visitante_2021$pontos)
+porc_pontos_vis_2021 <- (p_visitante_2021/pontos_poss_ano)*100 
+porc_pontos_vis_2021 <- round(porc_pontos_vis_2021, 0)
+```
+
+
+
+```{r, include=F}
+pontos_ano_man <- c(p_mandante_2003, p_mandante_2004, p_mandante_2005, 
+                    p_mandante_2006, p_mandante_2007, p_mandante_2009,
+                    p_mandante_2010, p_mandante_2011, p_mandante_2012,
+                    p_mandante_2013, p_mandante_2014, p_mandante_2015,
+                    p_mandante_2016, p_mandante_2017, p_mandante_2018,
+                    p_mandante_2019, p_mandante_2020, p_mandante_2021)
+```
+```{r, include=F}
+porc_ano_man <-c(porc_pontos_2003, porc_pontos_2004, porc_pontos_2005,
+                 porc_pontos_2006, porc_pontos_2007, porc_pontos_2009,
+                 porc_pontos_2010, porc_pontos_2011, porc_pontos_2012,
+                 porc_pontos_2013, porc_pontos_2014, porc_pontos_2015,
+                 porc_pontos_2016, porc_pontos_2017, porc_pontos_2018,
+                 porc_pontos_2019, porc_pontos_2020, porc_pontos_2021)
+```
+```{r, include=F}
+pontos_vis_ano <- c(p_visitante_2003, p_visitante_2004, p_visitante_2005, 
+                p_visitante_2006, p_visitante_2007, p_visitante_2009,
+                p_visitante_2010, p_visitante_2011, p_visitante_2012,
+                p_visitante_2013, p_visitante_2014, p_visitante_2015,
+                p_visitante_2016, p_visitante_2017, p_visitante_2018,
+                p_visitante_2019, p_visitante_2020, p_visitante_2021)
+```
+```{r, include=F}
+porc_ano_vis <-c(porc_pontos_vis_2003, porc_pontos_vis_2004, porc_pontos_vis_2005,
+                 porc_pontos_vis_2006, porc_pontos_vis_2007, porc_pontos_vis_2009,
+                 porc_pontos_vis_2010, porc_pontos_vis_2011, porc_pontos_vis_2012,
+                 porc_pontos_vis_2013, porc_pontos_vis_2014, porc_pontos_vis_2015,
+                 porc_pontos_vis_2016, porc_pontos_vis_2017, porc_pontos_vis_2018,
+                 porc_pontos_vis_2019, porc_pontos_vis_2020, porc_pontos_vis_2021)
+```
+```{r, include=F}
+ano <- c(2003:2021)
+ano <- ano [ano != 2008]
+```
+```{r, include=F}
+medias_pontos_mandante <- round(mean(pontos_ano_man), 2)
+desv_pontos_mandante <- round(sd(pontos_ano_man), 2)
+medias_porc_mandante <- round(mean(porc_ano_man), 2)
+desv_porc_mandante <- round(sd(porc_ano_man), 2)
+```
+```{r, include=F}
+med_pontos_vis <- round(mean(pontos_vis_ano), 2)
+desv_pontos_vis <- round(sd(pontos_vis_ano), 2)
+medias_porc_vis <- round(mean(porc_ano_vis), 2)
+desv_porc_vis <- round(sd(porc_ano_vis), 2)
+```
+```{r, include=F}
+res_analises <- data.frame(Ptos_casa = pontos_ano_man, Ptos_fora = pontos_vis_ano,Ptos_casa_por= porc_ano_man, Ptos_casa_por=porc_ano_vis, ano)
+```
+
+```{r, include=F}
+
+mandante_gols_2003 <-sum(mandante_2003$mandante_placar)
+mandante_saldo_2003 <-sum(mandante_2003$saldo_mandante)
+visitante_gols_2003 <-sum(visitante_2003$visitante_placar)
+visitante_saldo_2003 <-sum(visitante_2003$saldo_visitante)
+
+#2004
+
+mandante_gols_2004 <-sum(mandante_2004$mandante_placar)
+mandante_saldo_2004 <-sum(mandante_2004$saldo_mandante)
+visitante_gols_2004 <-sum(visitante_2004$visitante_placar)
+visitante_saldo_2004 <-sum(visitante_2004$saldo_visitante)
+
+#2005
+
+mandante_gols_2005 <-sum(mandante_2005$mandante_placar)
+mandante_saldo_2005 <-sum(mandante_2005$saldo_mandante)
+visitante_gols_2005 <-sum(visitante_2005$visitante_placar)
+visitante_saldo_2005 <-sum(visitante_2005$saldo_visitante)
+
+#2006
+
+mandante_gols_2006 <-sum(mandante_2006$mandante_placar)
+mandante_saldo_2006 <-sum(mandante_2006$saldo_mandante)
+visitante_gols_2006 <-sum(visitante_2006$visitante_placar)
+visitante_saldo_2006 <-sum(visitante_2006$saldo_visitante)
+
+#2007
+
+mandante_gols_2007 <-sum(mandante_2007$mandante_placar)
+mandante_saldo_2007 <-sum(mandante_2007$saldo_mandante)
+visitante_gols_2007 <-sum(visitante_2007$visitante_placar)
+visitante_saldo_2007 <-sum(visitante_2007$saldo_visitante)
+
+#2009
+
+mandante_gols_2009 <-sum(mandante_2009$mandante_placar)
+mandante_saldo_2009 <-sum(mandante_2009$saldo_mandante)
+visitante_gols_2009 <-sum(visitante_2009$visitante_placar)
+visitante_saldo_2009 <-sum(visitante_2009$saldo_visitante)
+
+#2010
+
+mandante_gols_2010 <-sum(mandante_2010$mandante_placar)
+mandante_saldo_2010 <-sum(mandante_2010$saldo_mandante)
+visitante_gols_2010 <-sum(visitante_2010$visitante_placar)
+visitante_saldo_2010 <-sum(visitante_2010$saldo_visitante)
+
+#2011
+
+mandante_gols_2011 <-sum(mandante_2011$mandante_placar)
+mandante_saldo_2011 <-sum(mandante_2011$saldo_mandante)
+visitante_gols_2011 <-sum(visitante_2011$visitante_placar)
+visitante_saldo_2011 <-sum(visitante_2011$saldo_visitante)
+
+#2012
+
+mandante_gols_2012 <-sum(mandante_2012$mandante_placar)
+mandante_saldo_2012 <-sum(mandante_2012$saldo_mandante)
+visitante_gols_2012 <-sum(visitante_2012$visitante_placar)
+visitante_saldo_2012 <-sum(visitante_2012$saldo_visitante)
+
+#2013
+
+mandante_gols_2013 <-sum(mandante_2013$mandante_placar)
+mandante_saldo_2013 <-sum(mandante_2013$saldo_mandante)
+visitante_gols_2013 <-sum(visitante_2013$visitante_placar)
+visitante_saldo_2013 <-sum(visitante_2013$saldo_visitante)
+
+#2014
+
+mandante_gols_2014 <-sum(mandante_2014$mandante_placar)
+mandante_saldo_2014 <-sum(mandante_2014$saldo_mandante)
+visitante_gols_2014 <-sum(visitante_2014$visitante_placar)
+visitante_saldo_2014 <-sum(visitante_2014$saldo_visitante)
+
+#2015
+
+mandante_gols_2015 <-sum(mandante_2015$mandante_placar)
+mandante_saldo_2015 <-sum(mandante_2015$saldo_mandante)
+visitante_gols_2015 <-sum(visitante_2015$visitante_placar)
+visitante_saldo_2015 <-sum(visitante_2015$saldo_visitante)
+
+#2016
+
+mandante_gols_2016 <-sum(mandante_2016$mandante_placar)
+mandante_saldo_2016 <-sum(mandante_2016$saldo_mandante)
+visitante_gols_2016 <-sum(visitante_2016$visitante_placar)
+visitante_saldo_2016 <-sum(visitante_2016$saldo_visitante)
+
+#2017
+
+mandante_gols_2017 <-sum(mandante_2017$mandante_placar)
+mandante_saldo_2017 <-sum(mandante_2017$saldo_mandante)
+visitante_gols_2017 <-sum(visitante_2017$visitante_placar)
+visitante_saldo_2017 <-sum(visitante_2017$saldo_visitante)
+
+#2018
+
+mandante_gols_2018 <-sum(mandante_2018$mandante_placar)
+mandante_saldo_2018 <-sum(mandante_2018$saldo_mandante)
+visitante_gols_2018 <-sum(visitante_2018$visitante_placar)
+visitante_saldo_2018 <-sum(visitante_2018$saldo_visitante)
+
+#2019
+
+mandante_gols_2019 <-sum(mandante_2019$mandante_placar)
+mandante_saldo_2019 <-sum(mandante_2019$saldo_mandante)
+visitante_gols_2019 <-sum(visitante_2019$visitante_placar)
+visitante_saldo_2019 <-sum(visitante_2019$saldo_visitante)
+
+#2020
+
+mandante_gols_2020 <-sum(mandante_2020$mandante_placar)
+mandante_saldo_2020 <-sum(mandante_2020$saldo_mandante)
+visitante_gols_2020 <-sum(visitante_2020$visitante_placar)
+visitante_saldo_2020 <-sum(visitante_2020$saldo_visitante)
+
+#2021
+
+mandante_gols_2021 <-sum(mandante_2021$mandante_placar)
+mandante_saldo_2021 <-sum(mandante_2021$saldo_mandante)
+visitante_gols_2021 <-sum(visitante_2021$visitante_placar)
+visitante_saldo_2021 <-sum(visitante_2021$saldo_visitante)
+
+
+gols_m <- c(mandante_gols_2003,mandante_gols_2004,mandante_gols_2005,
+             mandante_gols_2006,mandante_gols_2007,mandante_gols_2009,
+             mandante_gols_2010,mandante_gols_2011,mandante_gols_2012,
+             mandante_gols_2013, mandante_gols_2014, mandante_gols_2015,
+             mandante_gols_2016,mandante_gols_2017,mandante_gols_2018,
+             mandante_gols_2019,mandante_gols_2020,mandante_gols_2021)
+
+saldo_m <- c(mandante_saldo_2003,mandante_saldo_2004,mandante_saldo_2005,
+             mandante_saldo_2006,mandante_saldo_2007,mandante_saldo_2009,
+             mandante_saldo_2010,mandante_saldo_2011,mandante_saldo_2012,
+             mandante_saldo_2013, mandante_saldo_2014,mandante_saldo_2015,
+             mandante_saldo_2016,mandante_saldo_2017,mandante_saldo_2018,
+             mandante_saldo_2019,mandante_saldo_2020,mandante_saldo_2021)
+
+gols_v <- c(visitante_gols_2003,visitante_gols_2004,visitante_gols_2005,
+            visitante_gols_2006,visitante_gols_2007,visitante_gols_2009,
+            visitante_gols_2010,visitante_gols_2011,visitante_gols_2012,
+            visitante_gols_2013,visitante_gols_2014,visitante_gols_2015,
+            visitante_gols_2016,visitante_gols_2017,visitante_gols_2018,
+            visitante_gols_2019,visitante_gols_2020,visitante_gols_2021)
+
+saldo_v <- c(visitante_saldo_2003,visitante_saldo_2004,visitante_saldo_2005,
+            visitante_saldo_2006,visitante_saldo_2007,visitante_saldo_2009,
+            visitante_saldo_2010,visitante_saldo_2011,visitante_saldo_2012,
+            visitante_saldo_2013,visitante_saldo_2014,visitante_saldo_2015,
+            visitante_saldo_2016,visitante_saldo_2017,visitante_saldo_2018,
+            visitante_saldo_2019,visitante_saldo_2020,visitante_saldo_2021)
+
+gols_br <- data.frame(gols_m,saldo_m,gols_v,saldo_v,ano)
+head(gols_br, 18)
+
+```
+
+
+
+```{r, include=F}
+gr1 <-
+res_analises %>% 
+ggplot(aes(x= ano, y= pontos_ano_man, label = pontos_ano_man))+
+  geom_bar (stat="identity", fill= "black")+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y=" Nº de pontos", title = "Pontuação como mandante no Brasileirão 03-21")
+
+gr2 <-
+res_analises %>% 
+  ggplot(aes(x= ano, y= pontos_vis_ano, label = pontos_vis_ano))+
+  geom_bar (stat="identity", fill= "#4f017c", color= "black", alpha = 1)+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y=" Nº de pontos",title = "Pontuação como visitante no Brasileirão 03-21")
+
+gr3 <-
+  res_analises %>% 
+  ggplot(aes(x= ano, y= porc_ano_man, label = porc_ano_man))+
+  geom_bar (stat="identity", fill= "black")+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y=" % de pontos", title = "Porcentagem de pontos como mandante no Brasileirão 03-21")
+
+gr4 <-
+  res_analises %>% 
+  ggplot(aes(x= ano, y= porc_ano_vis, label = porc_ano_vis))+
+  geom_bar (stat="identity", fill= "#4f017c", color= "black", alpha = 1)+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y=" % de pontos",title = "Porcentagem de pontos como visitante no Brasileirão 03-21")
+```
+```{r, include=F,message=F}
+library(cowplot)# biblioteca usada para dispor gráficos em colunas
+```
+
+##### Gráfico 1. Pontuação Corinthians por ano 
+```{r, echo=FALSE}
+plot_grid(gr1,gr2,nrow=2, ncol = 1)
+```
+
+
+
+
+##### Gráfico 2. Porcentagem de pontos do Corinthians
+```{r, echo=FALSE}
+plot_grid(gr3,gr4, nrow=2, ncol=1)
+```
+
+Em todos os anos analisados o Corinthias apresenta maiores pontuações em casa quando comparado ao desempenho como visitante, com exceção ao ano de 2020.
+
+#### Tabela 2. Média de pontos em campeonatos brasileiros (2003-2021)
+
+|                                      	|  **Mandante**  	|  **Visitante** 	|
+|--------------------------------------	|:--------------:	|:--------------:	|
+| **Pontos disputados (ano)**          	|       57       	|       57       	|
+| **Média de pontos conquistados**     	|  37,44 +- 7,64 	|  23,22 +- 7,04 	|
+| **Média de Pontos conquistados (%)** 	| 65,72 +- 13,42 	| 40,61 +- 12,22 	|
+
+
+#### Tabela 3. Média de pontos nos anos com título no campeonato brasileiro (2005,2011,2015 e 2017)
+
+|                                        	|  **Mandante** 	| **Visitante** 	|
+|----------------------------------------	|:-------------:	|:-------------:	|
+| **Pontos disputados (ano)**            	|       57      	|       57      	|
+| **Média de pontos conquistados (ano)** 	| 43,50 +- 4,36 	| 32,75 +- 4,19 	|
+| **Média de pontos conquistados (%)**   	| 76,50 +- 7,72 	| 57,25 +- 7,18 	|
+
+
+Como descrito anteriormente,as médias de pontos conquistados em casa apresentam maiores valores, adicionalmente, em anos de títulos a média sobe ainda mais chegando a apresentar valores aproximadamente 11% maiores em casa.   
+Outra possível estimativa é necessidade de aproximadamente 45 pontos em casa e 35 pontos fora para a conquista do campeonato.
+
+
+#### Figura 3. Gols e saldo de gols como mandante e visitante em campeonatos brasileiros (2003-2021)
+
+```{r, echo=FALSE}
+
+ gols_br %>% 
+  ggplot(aes(x= ano, y= gols_m, label = gols_m))+
+  geom_line (stat="identity", color = "black")+
+  scale_y_continuous(
+    breaks = c(50,40,30,20,10,0,-10,-20))+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y=" Nº de gols", title = "Gols como mandante no Brasileirão 03-21")
+
+
+  gols_br %>% 
+  ggplot(aes(x= ano, y= gols_v, label = gols_v))+
+  geom_line (stat="identity", color= "#4f017c")+
+  scale_y_continuous(
+    breaks = c(50,40,30,20,10,0,-10,-20))+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y="Nº de gols", title = "Gols como visitante no Brasileirão 03-21")
+
+
+  gols_br %>% 
+  ggplot(aes(x= ano, y= saldo_m, label = saldo_m))+
+  geom_line (stat="identity", color= "black")+
+  scale_y_continuous(
+    breaks = c(50,40,30,20,10,0,-10,-20))+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y=" Saldo de gols", title = "Saldo de gols como mandante no Brasileirão 03-21")
+
+
+
+  gols_br %>% 
+  ggplot(aes(x= ano, y= saldo_v, label = saldo_v))+
+  geom_line (stat="identity", color= "#4f017c")+
+  scale_y_continuous(
+    breaks = c(50,40,30,20,10,0,-10,-20))+
+  geom_label(size=3)+
+  theme_classic()+
+  labs(x="Ano", y="Saldo de gols", title = "Saldo de gols como visitante no Brasileirão 03-21")
+```
+
+Como visto na pontuação, o Corinthians apresenta maiores valores de gols e saldo de gols (gols corinthians/gols adversário), podemos destacar os saldos negativos tanto em casa como fora em 2006 e 2007, essa piora de saldo de gols em 2006 poderia ter sido encarada como um possível risco para o rebaixamento, a manutenção destes valores negativos produziu o rebaixamento no ano de 2007 que poderia ter sido previsto analisando os dados.
+
+#### Tabela 4. Média de gols e saldo de gols* nos 18 anos de campeonato brasileiro e anos com título
+
+
+|                            	| **Mandante** 	| **Visitante** 	|
+|----------------------------	|:------------:	|:-------------:	|
+| **BR (03-21)**             	|              	|               	|
+| **Média de gols**          	| 29,8 +- 9,25 	| 20,7 +- 6,57  	|
+| **Média do saldo de gols** 	| 11,9 +- 9,06 	|  -3,1 +- 7,05 	|
+| **Títulos (05,11,15,17)**  	|              	|               	|
+| **Média de gols**          	| 38,2 +- 7,76 	|  27,0 +- 9,49 	|
+| **Média do saldo de gols** 	| 19,5 +- 7,33 	| 6,8 +- 3,77   	|
+
+*Saldo de gols = gols do Corinthians/gols adversário
+
+Assim como na análise da pontuação, os gols e saldo são maiores quando o Corinthians é mandante, aumentando ainda mais nos anos de com título.
+
+
+
+### O alto rendimento em casa.
+
+Os dados apresentam um aumento do rendimento da equipe quando joga em casa, com aumento do número em gols, saldo de gols, e pontos.
+Podemos analisar de diversas formas, mas nenhuma exclui a interferência da torcida em seus resultados.   
+O ano de 2020 é um possivel modelo que representa a interfência da torcida no saldo de gols e pontos, neste ano obtivemos saldo negativo de gols e pontuação abaixo da média da equipe, sua pior pontuação como mandante, ano este sem torcida devido a pandemia de COVID-19, sendo comparável somente aos dois anos pré série B. Além disso, o número de gols em casa foi o menor da era dos pontos corridos. Mas é claro que podemos questionar a qualidade da equipe, mas em um ciclo de 18 anos esses resultados são no mínimo curiosos.   
+Nenhum amante de futebol pode discutir o amor desta torcida, sua força e influência nos resultados.   
+Parece que os dados também não questionam sua influência...
+
+
+
+
+## Vai Corinthians!!
+
+
+

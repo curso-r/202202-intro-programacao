@@ -1,0 +1,53 @@
+# tcc_cursor_ams
+
+## Link do banco de dados inicial 
+
+https://raw.githubusercontent.com/adaoduque/Brasileirao_Dataset/master/campeonato-brasileiro-full.csv
+
+
+## link do repositório das funções para cálculo de pontos e resultados no Github
+
+https://raw.githubusercontent.com/AlexandreStos/ef_functions/main/pontos_br
+
+
+
+## link da publicação online do rmarkdown no rpubs.com
+
+https://rpubs.com/alexandre_santos_ef/mando_corinthians
+
+
+# Objetivos do trabalho:
+
+1- Avaliar a efeito dos mando de jogo do corinthians no campeonatos brasileiro(2003-2002)
+2- Comparar jogos como mandante com jogos do corinthians como visitante
+3- comparar nº de gols, saldos de gols e pontuação
+
+
+# Manipulação e criação de variaveis
+
+3- selecionar e criar dataframes:
+
+a- Corinthians mandante
+b- Corinthians visitante
+c- Excluir ano de 2008 (série B)
+d- Criar funçoes para cálculo de pontuação e resultado (vitória, derrota e empate)
+e- Criar colunas específica para para pontos e resultado em cada dataframe
+f- Criar com Lubridate, coluna ano somente com o ano "XXXX"
+g- Somar resultados po ano
+h- Fazer análise descritiva (média e desvio padrão) de pontos, saldo de pontos e gols
+
+# criação de gráficos 
+
+# rmarkdown
+
+Resumindo os resultados e apresentando em formato mais acessível
+
+
+######## Ver resultado do trabalho:
+
+## link da publicação online do rmarkdown no rpubs.com
+
+https://rpubs.com/alexandre_santos_ef/mando_corinthians
+
+
+
