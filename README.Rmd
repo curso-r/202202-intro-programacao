@@ -42,6 +42,23 @@ Fora do horário de aula ou monitoria:
 - perguntas sobre R, principalmente as que envolverem código, deverão ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
 
 
+## Trabalhos finais
+
+### Trabalhos premiados 
+
+- Alexandre Santos - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Alexandre_Santos) e [Relatório Final](https://github.com/curso-r/202202-intro-programacao/blob/main/trabalhos_finais/Alexandre_Santos/A%20for%C3%A7a%20do%20povo.pdf) - Análise sobre os jogos do Corinthians e a influência da torcida da casa. O trabalho do Alexandre usou conteúdos além dos mostrados, como relatórios e gráficos. Levamos mais em conta ele ter usado todos os conteúdos mostrados no curso na análise! 
+
+- Raquel Jorge de Oliveira - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Raquel_Jorge_de_Oliveira) - A análise da Raquel  foi sobre personagens de Star Wars, utilizando o pacote dados. Ficou bem legal! Usou também todos os conceitos do curso, e o texto ficou bem interessante de ler!
+
+
+### Trabalhos com menção honrosa!
+
+- Marcio Vakassugui - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Marcio_Vakassugui) e [Relatório Final](https://github.com/curso-r/202202-intro-programacao/blob/main/trabalhos_finais/Marcio_Vakassugui/manuscrito/trabalho_curso_r.pdf) -  O trabalho do Márcio tem o titulo *Análise de letalidade de crianças com COVID-19 (SARS-COV2)*. Ficou super bem organizado, e produziu um relatório bem elegante ao final usando RMarkdown e LaTeX. ÓTIMO exemplo de organização do projeto (principalmente para quem é da área acadêmica!!)
+
+
+-  Laila Viana - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Laila_Viana) - O trabalho da Laila buscou analisar dados do histórico do Spotify de músicas e artistas mais ouvidas por ela!  Ficou bem interessante, e ela usou o pacote spotifyr (que não é tão simples de acessar, envolve usar credenciais e as funções tem vários argumentos, tem um esforço em ler a documentação para dar tudo certo...).
+
+
 ## Slides
 
 ```{r}
@@ -93,22 +110,6 @@ knitr::kable(
 
 ```
 
-
-## Trabalhos finais
-
-### Trabalhos premiados 
-
-- Alexandre Santos - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Alexandre_Santos) e [Relatório Final](https://github.com/curso-r/202202-intro-programacao/blob/main/trabalhos_finais/Alexandre_Santos/A%20for%C3%A7a%20do%20povo.pdf) - Análise sobre os jogos do Corinthians e a influência da torcida da casa. O trabalho do Alexandre usou conteúdos além dos mostrados, como relatórios e gráficos. Levamos mais em conta ele ter usado todos os conteúdos mostrados no curso na análise! 
-
-- Raquel Jorge de Oliveira - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Raquel_Jorge_de_Oliveira) - A análise da Raquel  foi sobre personagens de Star Wars, utilizando o pacote dados. Ficou bem legal! Usou também todos os conceitos do curso, e o texto ficou bem interessante de ler!
-
-
-### Trabalhos com menção honrosa!
-
-- Marcio Vakassugui - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Marcio_Vakassugui) e [Relatório Final](https://github.com/curso-r/202202-intro-programacao/blob/main/trabalhos_finais/Marcio_Vakassugui/manuscrito/trabalho_curso_r.pdf) -  O trabalho do Márcio tem o titulo *Análise de letalidade de crianças com COVID-19 (SARS-COV2)*. Ficou super bem organizado, e produziu um relatório bem elegante ao final usando RMarkdown e LaTeX. ÓTIMO exemplo de organização do projeto (principalmente para quem é da área acadêmica!!)
-
-
--  Laila Viana - [Códigos](https://github.com/curso-r/202202-intro-programacao/tree/main/trabalhos_finais/Laila_Viana) - O trabalho da Laila buscou analisar dados do histórico do Spotify de músicas e artistas mais ouvidas por ela!  Ficou bem interessante, e ela usou o pacote spotifyr (que não é tão simples de acessar, envolve usar credenciais e as funções tem vários argumentos, tem um esforço em ler a documentação para dar tudo certo...).
 
 ## Material extra
 

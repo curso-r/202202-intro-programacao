@@ -21,37 +21,6 @@ Fora do horário de aula ou monitoria:
 -   perguntas sobre R, principalmente as que envolverem código, deverão
     ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
 
-## Slides
-
-| slides                                                                                                                         | pdf                                                                                                                          |
-|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| [01-introducao-ao-curso.html](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.html)             | [01-introducao-ao-curso.pdf](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.pdf)             |
-| [02-introducao-ao-RStudio.html](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.html)         | [02-introducao-ao-RStudio.pdf](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.pdf)         |
-| [03-introducao-ao-R.html](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.html)                     | [03-introducao-ao-R.pdf](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.pdf)                     |
-| [04-tabelas.html](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.html)                                     | [04-tabelas.pdf](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.pdf)                                     |
-| [05-filtros.html](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.html)                                     | [05-filtros.pdf](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.pdf)                                     |
-| [06-controle-de-fluxo-e-loops.html](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.html) | [06-controle-de-fluxo-e-loops.pdf](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.pdf) |
-| [07-funcoes.html](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.html)                                     | [07-funcoes.pdf](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.pdf)                                     |
-| [08-manipulacao-de-arquivos.html](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.html)     | [08-manipulacao-de-arquivos.pdf](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.pdf)     |
-
-## Scripts utilizados em aula
-
-| script                                                                                                                                                                   |
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [exemplos_de_aula/01-introducao.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/01-introducao.R)                             |
-| [exemplos_de_aula/02-tabelas.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/02-tabelas.R)                                   |
-| [exemplos_de_aula/03-comparacoes-logicas-e-NA.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/03-comparacoes-logicas-e-NA.R) |
-| [exemplos_de_aula/04-filtros.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/04-filtros.R)                                   |
-| [exemplos_de_aula/05-pipe.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/05-pipe.R)                                         |
-| [exemplos_de_aula/06-loops.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/06-loops.R)                                       |
-| [exemplos_de_aula/07-controle-de-fluxo.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/07-controle-de-fluxo.R)               |
-| [exemplos_de_aula/08-loops-com-if.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/08-loops-com-if.R)                         |
-| [exemplos_de_aula/09-funcoes.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/09-funcoes.R)                                   |
-| [exemplos_de_aula/09-instalar-pacotes.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/09-instalar-pacotes.R)                 |
-| [exemplos_de_aula/10-manipulacao-arquivos.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/10-manipulacao-arquivos.R)         |
-| [exemplos_de_aula/11-exemplo-source.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/11-exemplo-source.R)                     |
-| [exemplos_de_aula/12-aula-final.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/12-aula-final.R)                             |
-
 ## Trabalhos finais
 
 ### Trabalhos premiados
@@ -90,6 +59,37 @@ Fora do horário de aula ou monitoria:
     ela usou o pacote spotifyr (que não é tão simples de acessar,
     envolve usar credenciais e as funções tem vários argumentos, tem um
     esforço em ler a documentação para dar tudo certo…).
+
+## Slides
+
+| slides                                                                                                                         | pdf                                                                                                                          |
+|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
+| [01-introducao-ao-curso.html](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.html)             | [01-introducao-ao-curso.pdf](https://curso-r.github.io/main-intro-programacao/slides/01-introducao-ao-curso.pdf)             |
+| [02-introducao-ao-RStudio.html](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.html)         | [02-introducao-ao-RStudio.pdf](https://curso-r.github.io/main-intro-programacao/slides/02-introducao-ao-RStudio.pdf)         |
+| [03-introducao-ao-R.html](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.html)                     | [03-introducao-ao-R.pdf](https://curso-r.github.io/main-intro-programacao/slides/03-introducao-ao-R.pdf)                     |
+| [04-tabelas.html](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.html)                                     | [04-tabelas.pdf](https://curso-r.github.io/main-intro-programacao/slides/04-tabelas.pdf)                                     |
+| [05-filtros.html](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.html)                                     | [05-filtros.pdf](https://curso-r.github.io/main-intro-programacao/slides/05-filtros.pdf)                                     |
+| [06-controle-de-fluxo-e-loops.html](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.html) | [06-controle-de-fluxo-e-loops.pdf](https://curso-r.github.io/main-intro-programacao/slides/06-controle-de-fluxo-e-loops.pdf) |
+| [07-funcoes.html](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.html)                                     | [07-funcoes.pdf](https://curso-r.github.io/main-intro-programacao/slides/07-funcoes.pdf)                                     |
+| [08-manipulacao-de-arquivos.html](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.html)     | [08-manipulacao-de-arquivos.pdf](https://curso-r.github.io/main-intro-programacao/slides/08-manipulacao-de-arquivos.pdf)     |
+
+## Scripts utilizados em aula
+
+| script                                                                                                                                                                   |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [exemplos_de_aula/01-introducao.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/01-introducao.R)                             |
+| [exemplos_de_aula/02-tabelas.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/02-tabelas.R)                                   |
+| [exemplos_de_aula/03-comparacoes-logicas-e-NA.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/03-comparacoes-logicas-e-NA.R) |
+| [exemplos_de_aula/04-filtros.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/04-filtros.R)                                   |
+| [exemplos_de_aula/05-pipe.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/05-pipe.R)                                         |
+| [exemplos_de_aula/06-loops.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/06-loops.R)                                       |
+| [exemplos_de_aula/07-controle-de-fluxo.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/07-controle-de-fluxo.R)               |
+| [exemplos_de_aula/08-loops-com-if.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/08-loops-com-if.R)                         |
+| [exemplos_de_aula/09-funcoes.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/09-funcoes.R)                                   |
+| [exemplos_de_aula/09-instalar-pacotes.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/09-instalar-pacotes.R)                 |
+| [exemplos_de_aula/10-manipulacao-arquivos.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/10-manipulacao-arquivos.R)         |
+| [exemplos_de_aula/11-exemplo-source.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/11-exemplo-source.R)                     |
+| [exemplos_de_aula/12-aula-final.R](https://raw.githubusercontent.com/curso-r/202202-intro-programacao/main/exemplos_de_aula/12-aula-final.R)                             |
 
 ## Material extra
 
